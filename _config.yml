@@ -30,9 +30,10 @@ author:
   avatar           : "profile.png"
   name             : "Hamidreza Alavi, PhD, MASCE, FHEA"
   pronouns         : # example: "she/her"  
-  bio              : "Senior Lecturer in Construction Informatics at Oxford Brookes University and Academic Affiliate at the University of Cambridge. Research interests include AI, machine learning, digital twins, BIM, and data-driven decision-making for infrastructure and the built environment."
-  location         : "Earth"
-  employer         : "Oxford Brookes University"
+  bio              : "Senior Lecturer in Construction Informatics at OBU and Academic Affiliate at the University of Cambridge"
+  location         : "Oxford, UK"
+  employer         : "Oxford Brookes University
+  University of Camridge"
   uri              : # URL
   email            : "h.alavi@brookes.ac.uk" 
 
