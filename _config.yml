@@ -17,10 +17,10 @@ description              : &description "Hamidreza Alavi is a Senior Lecturer in
 Prior to joining Cambridge, he was an Associate Professor at the Polytechnic University of Catalonia (UPC), where he led research in BIM-based facility management, digital construction, and decision-support systems. He has played key roles in international and interdisciplinary research projects focused on advancing digitalisation and intelligence in the built environment.
 
 His research has been widely published in high-impact journals and international conferences, and he serves as an Editorial Board Member of the Smart and Sustainable Built Environment journal. Through his work, he is committed to bridging research and education to develop intelligent, sustainable, and technology-driven solutions for the construction and infrastructure sectors."   # Update this with a general description of your site, this is the default if not overridden by a page
-url                      : https://academicpages.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
+url                      : https://academicpages.github.io # The base hostname & protocol for your site e.g. "https://hr-alavi.github.io",
                                                            # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "academicpages/academicpages.github.io"
+repository               : "Hr-Alavi/Hr-Alavi.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
