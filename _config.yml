@@ -32,7 +32,7 @@ author:
   pronouns         : # example: "she/her"  
   bio              : "Senior Lecturer in Construction Informatics at OBU and Academic Affiliate at the University of Cambridge"
   location         : "Oxford, UK"
-  employer         : "Oxford Brookes University", "University of Cambridge"
+  employer         : # "Oxford Brookes University", "University of Cambridge"
   uri              : "https://www.construction.cam.ac.uk/staff/dr-hamidreza-alavi"
   email            : "h.alavi@brookes.ac.uk" 
 
