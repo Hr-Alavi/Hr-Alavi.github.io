@@ -34,7 +34,7 @@ author:
   location         : "Oxford, UK"
   employer         : "Oxford Brookes University
   University of Camridge"
-  uri              : # URL
+  uri              : "https://www.construction.cam.ac.uk/staff/dr-hamidreza-alavi"
   email            : "h.alavi@brookes.ac.uk" 
 
   # Academic websites
@@ -46,7 +46,7 @@ author:
   orcid            : "https://orcid.org/0000-0003-4573-3286"
   semantic         : # URL
   ssrn             : # URL
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  pubmed           : # no
   researchgate     : "https://www.researchgate.net/profile/Hamidreza-Alavi"
   scopus           : "https://www.scopus.com/authid/detail.uri?authorId=57221289863"
   zotero           : # URL
@@ -63,7 +63,7 @@ author:
   # Social media
   artstation       : # Username
   bluesky          : # Replace this with you Bluesky username
-  facebook         : "https://www.facebook.com/hamid.alavi20"
+  facebook         : "hamid.alavi20"
   flickr           : # Username
   foursquare       : # Username
   goodreads        : # Username
@@ -71,7 +71,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : "https://www.linkedin.com/in/hamidreza-alavi-729b0416b"
+  linkedin         : "hamidreza-alavi-729b0416b"
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username
@@ -79,7 +79,7 @@ author:
   steam            : # Username
   telegram         : # URL
   tumblr           : # Username
-  twitter          : "https://x.com/hracivil"
+  twitter          : "hracivil"
   vine             : # Username
   weibo            : # Username
   wikipedia        : # Username
