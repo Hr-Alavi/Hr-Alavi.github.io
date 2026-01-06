@@ -28,13 +28,13 @@ repository               : "Hr-Alavi/Hr-Alavi.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Your Sidebar Name"
+  name             : "Hamidreza Alavi, PhD, MASCE, FHEA"
   pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
+  bio              : "Senior Lecturer in Construction Informatics at Oxford Brookes University and Academic Affiliate at the University of Cambridge. Research interests include AI, machine learning, digital twins, BIM, and data-driven decision-making for infrastructure and the built environment."
   location         : "Earth"
-  employer         : "Red Brick University"
+  employer         : "Oxford Brookes University"
   uri              : # URL
-  email            : "none@example.org" 
+  email            : "h.alavi@brookes.ac.uk" 
 
   # Academic websites
   academia         : # URL
