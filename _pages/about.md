@@ -18,7 +18,7 @@ His research has been widely published in high-impact journals and international
 
 Recent Highlights & Activities
 ======
-## **2025**
+### **2025**
 - Delivered teaching in the 3D9 **Construction Management** module at the [**University of Cambridge**](https://www.cam.ac.uk/) this semester, including designing and leading all lab sessions.
 - Lectured on **Digital Construction** in the 4D4 module at the [**University of Cambridge**](https://www.cam.ac.uk/) (with Prof. Ioannis Brilakis).
 - [Presented our **AEGIR** work at the **University of Cambridge**](https://drf.eng.cam.ac.uk/events/drf-lunchtime-clinic-dr-mudan-wang-and-dr-hamidreza-alavi) (DRF Lunch Clinic seminar), sharing research on AI/ML pipelines and geometric digital twin model generation. [[**See AEGIR Project**](https://aegirproject.eu/)]
@@ -29,7 +29,7 @@ Recent Highlights & Activities
 - Presented research at **EC³ 2025 (Porto)** and **ISARC 2025 (Montreal)**, with papers on digital twins, AR/VR, and digital construction methods.
 - Represented the [**University of Cambridge**](https://www.cam.ac.uk/) at the [**OMICRON H2020 Final Event (Madrid)**](https://omicronproject.eu/final-event/), presenting **PointPix, a scalable digital-twin-enabled pavement inspection system**.
   
-**2024**
+### **2024**
 - Presented at **EC³ 2024 (Chania, Crete)** and the **ASCE International Conference on Computing in Civil Engineering (i3CE 2024)**, including work on BIM–LiDAR / point clouds and **digital twins for schedule monitoring**; also served as a **session chair**.
 - Contributed to the [**AEGIR (EU/Horizon Europe)**](https://aegirproject.eu/) consortium activities (technical workshops, collaboration, and deployment discussions across demo sites).
 - **Guest Editor** of a Special Issue on [**Net-Zero-Energy Buildings**](https://www.mdpi.com/journal/buildings/special_issues/REJYKZAD56), focusing on AI-driven decision-support systems, digital twins, BIM-based workflows, and sustainable construction and energy management.
