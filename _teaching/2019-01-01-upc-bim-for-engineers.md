@@ -4,7 +4,6 @@ collection: teaching
 type: "Undergraduate module"
 permalink: /teaching/upc-bim-for-engineers
 venue: "Universitat Politècnica de Catalunya (UPC)"
-date: 2019-01-01
 location: "Barcelona, Spain"
 ---
 
