@@ -14,7 +14,7 @@ His research has been widely published in high-impact journals and international
 
 **Research interests:** AI, machine learning, digital twins, BIM, and data-driven decision-making for infrastructure and the built environment
 
-![Cover](/images/Cover.png)
+![Cover](/images/Cover1.png)
 
 ####### A data-driven personal website
 ======
