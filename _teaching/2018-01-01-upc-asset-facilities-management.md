@@ -4,7 +4,6 @@ collection: teaching
 type: "Postgraduate module"
 permalink: /teaching/upc-asset-and-facilities-management
 venue: "Universitat Politècnica de Catalunya (UPC)"
-date: 2018-01-01
 location: "Barcelona, Spain"
 ---
 
