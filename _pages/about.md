@@ -18,7 +18,7 @@ His research has been widely published in high-impact journals and international
 
 Recent Highlights & Activities
 ======
-### **2025**
+## **2025**
 - Delivered teaching in the 3D9 **Construction Management** module at the [**University of Cambridge**](https://www.cam.ac.uk/) this semester, including designing and leading all lab sessions.
 - Lectured on **Digital Construction** in the 4D4 module at the [**University of Cambridge**](https://www.cam.ac.uk/) (with Prof. Ioannis Brilakis).
 - [Presented our **AEGIR** work at the **University of Cambridge**](https://drf.eng.cam.ac.uk/events/drf-lunchtime-clinic-dr-mudan-wang-and-dr-hamidreza-alavi) (DRF Lunch Clinic seminar), sharing research on AI/ML pipelines and geometric digital twin model generation. [[**See AEGIR Project**](https://aegirproject.eu/)]
