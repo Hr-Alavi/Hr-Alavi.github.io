@@ -9,6 +9,6 @@ location: "Terrassa, Spain"
 ---
 
 Newspaper coverage highlighting an award for university excellence.
-
+![Hamidreza Alavi](/images/Hamidreza Alavi.jpeg)
 [More information](https://www.diarideterrassa.com/terrassa/2021/11/30/terrassa-beques-universitat/)
 
