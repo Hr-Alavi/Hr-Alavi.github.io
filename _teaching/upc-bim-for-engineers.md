@@ -1,0 +1,13 @@
+---
+title: "BIM for Engineers"
+collection: teaching
+type: "Undergraduate module"
+permalink: /teaching/upc-bim-for-engineers
+venue: "Universitat Politècnica de Catalunya (UPC)"
+location: "Barcelona, Spain"
+---
+
+**Institution:** [Universitat Politècnica de Catalunya (UPC)](https://www.upc.edu/)  
+
+Module on BIM fundamentals and engineering applications.
+Role: **Module Leader; Assessor (setting & marking)**.
