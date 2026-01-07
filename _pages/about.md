@@ -12,7 +12,7 @@ Previously, he served as a [Research and Teaching Associate in the Department of
 Prior to joining Cambridge, he was an Associate Professor at the [Polytechnic University of Catalonia (UPC)](https://www.upc.edu/en), where he led research in BIM-based facility management, digital construction, and decision-support systems. He has played key roles in international and interdisciplinary research projects focused on advancing digitalisation and intelligence in the built environment.
 His research has been widely published in high-impact journals and international conferences, and he serves as an Editorial Board Member of the [Smart and Sustainable Built Environment](https://www.emeraldgrouppublishing.com/journal/sasbe) journal. Through his work, he is committed to bridging research and education to develop intelligent, sustainable, and technology-driven solutions for the construction and infrastructure sectors.
 
-**Research interests:** AI, machine learning, digital twins, BIM, and data-driven decision-making for infrastructure and the built environment
+**Research interests:** Artificial Intelligence (AI), Machine Learning, Digital Twins, Building Information Modeling (BIM), Data-driven Decision-making for Infrastructure and the Built Environment
 
 ![Cover](/images/Cover1.png)
 
