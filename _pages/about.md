@@ -34,5 +34,5 @@ Recent Highlights & Activities
 - Contributed to the [**AEGIR (EU/Horizon Europe)**](https://aegirproject.eu/) consortium activities (technical workshops, collaboration, and deployment discussions across demo sites).
 - **Guest Editor** of a Special Issue on [**Net-Zero-Energy Buildings**](https://www.mdpi.com/journal/buildings/special_issues/REJYKZAD56), focusing on AI-driven decision-support systems, digital twins, BIM-based workflows, and sustainable construction and energy management.
 - Published the Springer Nature book [**"Integrated Building Intelligence"**](https://link.springer.com/book/10.1007/978-3-031-68865-2) (BIM + DSS + AI), bridging research and practice in smart building lifecycle management.
-- Serving as an **Editorial Board Member** for [*Smart and Sustainable Built Environment*](https://www.emeraldgrouppublishing.com/journal/sasbe).
+- Serving as an **Editorial Board Member** for [**Smart and Sustainable Built Environment**](https://www.emeraldgrouppublishing.com/journal/sasbe).
 - Awarded [**Fellow of the Higher Education Academy (FHEA)**](https://www.advance-he.ac.uk/fellowship/fellowship) in recognition of excellence in teaching and curriculum development.
