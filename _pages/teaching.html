@@ -7,6 +7,30 @@ author_profile: true
 
 {% include base_path %}
 
+<h2>University of Cambridge</h2>
 {% for post in site.teaching reversed %}
-  {% include archive-single.html %}
+  {% if post.venue contains "University of Cambridge" %}
+    {% include archive-single.html %}
+  {% endif %}
+{% endfor %}
+
+<h2>Oxford Brookes University</h2>
+{% for post in site.teaching reversed %}
+  {% if post.venue contains "Oxford Brookes University" %}
+    {% include archive-single.html %}
+  {% endif %}
+{% endfor %}
+
+<h2>Universitat Politècnica de Catalunya (UPC)</h2>
+{% for post in site.teaching reversed %}
+  {% if post.venue contains "Universitat Politècnica de Catalunya" %}
+    {% include archive-single.html %}
+  {% endif %}
+{% endfor %}
+
+<h2>EADIC – Engineering, Training & Development Solutions</h2>
+{% for post in site.teaching reversed %}
+  {% if post.venue contains "EADIC" %}
+    {% include archive-single.html %}
+  {% endif %}
 {% endfor %}
