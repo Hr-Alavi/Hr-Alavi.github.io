@@ -1,5 +1,5 @@
 ---
-title: "4D4: Construction Engineering (IIB)"
+title: "4D4: Digital Construction (IIB)"
 collection: teaching
 type: "Undergraduate module"
 permalink: /teaching/cambridge-iib-4d4-construction-engineering
