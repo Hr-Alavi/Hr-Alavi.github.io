@@ -1,10 +1,10 @@
 ---
-title: "Mapping the Landscape of Digital Twin Applications in Infrastructure and the Built Environment: A Review Across Research Types, Methods, Sectors, Phases, and Scales"
+title: "Mapping digital twin applications in infrastructure and the built environment across research types, methods, sectors, phases, and scales"
 collection: publications
 category: manuscripts
 permalink: /publication/2025-mapping-the-landscape-of-digital-twin-applications-in-infrastructure-a
-excerpt: "Mapping the Landscape of Digital Twin Applications in Infrastructure and the Built Environment: A Review Across Research Types, Methods, Sectors, Phases, and Scales"
-date: 2025-01-01
+excerpt: "Mapping digital twin applications in infrastructure and the built environment across research types, methods, sectors, phases, and scales"
+date: 2026-01-13
 venue: "Automation in Construction"
 paperurl: ""
 bibtexurl: "/files/bibtex/kookalani2025mapping.bib"
