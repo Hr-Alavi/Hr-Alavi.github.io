@@ -1,19 +1,73 @@
 ---
 layout: archive
-permalink: /year-archive1/
-title: "Blog posts"
+permalink: /gallery/
+title: "Gallery"
 author_profile: true
-redirect_from:
-  - /wordpress/blog-posts/
 ---
 
 {% include base_path %}
-{% capture written_year %}'None'{% endcapture %}
-{% for post in site.posts %}
-  {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-  {% if year != written_year %}
-    <h2 id="{{ year | slugify }}" class="archive__subtitle">{{ year }}</h2>
-    {% capture written_year %}{{ year }}{% endcapture %}
-  {% endif %}
-  {% include archive-single.html %}
-{% endfor %}
+
+<style>
+  .gallery-year { margin-top: 1.5rem; }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+    margin-top: 12px;
+  }
+  .gallery-card {
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.02);
+  }
+  .gallery-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+  }
+  .gallery-meta { padding: 10px 12px; }
+  .gallery-title { font-weight: 700; margin: 0 0 6px 0; }
+  .gallery-caption { margin: 0; font-size: 0.92rem; opacity: 0.9; }
+  .gallery-link a { font-size: 0.92rem; }
+</style>
+
+<div class="gallery-year">
+  <h2 class="archive__subtitle">2025</h2>
+  <div class="gallery-grid">
+    <!-- Card 1 -->
+    <div class="gallery-card">
+      <img src="/images/gallery/1757002714077.png" alt="EC3 2025, Porto">
+      <div class="gallery-meta">
+        <p class="gallery-title">EC3 2025 (Porto)</p>
+        <p class="gallery-caption">Conference presentation & networking.</p>
+        <p class="gallery-link"><a href="https://example.com" target="_blank" rel="noopener">Event page</a></p>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="gallery-card">
+      <img src="/images/gallery/isarc-montreal-2025.png" alt="ISARC 2025, Montreal">
+      <div class="gallery-meta">
+        <p class="gallery-title">ISARC 2025 (Montreal)</p>
+        <p class="gallery-caption">Digital twins, BIM & AR/VR topics.</p>
+      </div>
+    </div>
+
+    <!-- Add more cards here -->
+  </div>
+</div>
+
+<div class="gallery-year">
+  <h2 class="archive__subtitle">2024</h2>
+  <div class="gallery-grid">
+    <div class="gallery-card">
+      <img src="/images/gallery/cambridge-teaching-3d9-2024.png" alt="Cambridge teaching">
+      <div class="gallery-meta">
+        <p class="gallery-title">Teaching (Cambridge)</p>
+        <p class="gallery-caption">Lab sessions & coursework activities.</p>
+      </div>
+    </div>
+  </div>
+</div>
