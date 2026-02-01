@@ -11,8 +11,8 @@ Here you can find Revit guidance and downloadable files for labs and coursework.
 All files are hosted on this site and can be downloaded directly:
 
 - **Revit Families (.RFA):** `/hr-alavi.github.io/files/revit/families/`
-- **Revit Models (.RVT):** `/files/revit/models/`
-- **Templates (.RTE):** `/files/revit/templates/`
+- **Revit Models (.RVT):** `/hr-alavi.github.io/files/revit/models/`
+- **Templates (.RTE):** `/hr-alavi.github.io/files/revit/templates/`
 
 ## Revit Families (download)
 - [Door Families (ZIP)](/files/revit/families/Doors.zip)
