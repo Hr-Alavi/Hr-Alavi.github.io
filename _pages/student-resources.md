@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Resources"
+title: "Student Resources"
 permalink: /student-resources/
 author_profile: true
 ---
