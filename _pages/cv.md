@@ -9,6 +9,8 @@ redirect_from:
 
 {% include base_path %}
 
+You may also view my professional profile on [LinkedIn](https://www.linkedin.com/in/hamidreza-alavi-729b0416b/).
+
 Education
 ======
 * Ph.D. in Construction Engineering
@@ -47,7 +49,7 @@ Work experience
 
 * **BIM Specialist**  
   * MK Building Construction, Canberra, Australia  
-  * 2016 – 2017 (continued as freelancer until 2019)
+  * 2014 – 2017
 
 Skills
 ======
@@ -88,4 +90,11 @@ Teaching
   
 Service and leadership
 ======
-* Currently signed in to 43 different slack teams
+* Editorial Board Member, *Smart and Sustainable Built Environment* (Q1 journal)
+* Guest Editor, *Buildings* (Special Issue on Net-Zero Energy Buildings)
+* Reviewer for leading journals (Automation in Construction, Energy and Buildings, Building and Environment, etc.)
+* Member, American Society of Civil Engineers (ASCE)
+* Fellow of the Higher Education Academy (FHEA)
+* Member, UK Engineering Professors’ Council (EPC)
+* Session Chair and Scientific Committee Member for international conferences
+* Supervision and examination of PhD, MSc, and BSc theses
