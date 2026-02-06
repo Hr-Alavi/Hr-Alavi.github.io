@@ -11,35 +11,62 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* Ph.D. in Construction Engineering
+* M.S. in Construction Engineering and Management
+* M.Eng. in Project Engineering
+* B.S. in Civil Engineering 
 
 Work experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* **Senior Lecturer in Construction Informatics**  
+  * Oxford Brookes University, UK  
+  * 2025 – Present  
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* **Academic Affiliate**  
+  * Department of Engineering, University of Cambridge, UK  
+  * 2025 – Present  
 
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
+* **Research and Teaching Associate**  
+  * Department of Engineering, University of Cambridge, UK  
+  * 2023 – 2025  
+  * Curriculum development, teaching, and research on digital twins, BIM, AI, and decision-support systems  
+  * Work Package Leader for digital twin development in large-scale European research projects  
+
+* **Associate Professor**  
+  * Universitat Politècnica de Catalunya (UPC), Barcelona, Spain  
+  * 2022 – 2023  
+
+* **Visiting Researcher**  
+  * BIM TOPiCS Lab, Faculty of Applied Science  
+  * University of British Columbia (UBC), Vancouver, Canada  
+  * 2021 – 2022  
+
+* **Project Manager (Digital Construction & Health Infrastructure)**  
+  * Top Health Tech, Spain  
+  * 2022 – 2023  
+
+* **BIM Specialist**  
+  * MK Building Construction, Canberra, Australia  
+  * 2016 – 2017 (continued as freelancer until 2019)
+
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* **Research & Methods**
+  * Digital Twins, BIM, AI & Machine Learning
+  * Data-driven decision support systems
+  * Facility and asset management analytics
+  * Point clouds, LiDAR, computer vision
+
+* **Software & Programming**
+  * Revit, Navisworks, Dynamo, Solibri, ReCap
+  * Python for data analytics and automation
+  * IFC-based workflows and interoperability
+
+* **Teaching & Pedagogy**
+  * Curriculum design and module leadership
+  * Problem-Based Learning (PBL)
+  * Digital and immersive learning (VR/AR)
+  * Assessment design and examination
 
 Publications
 ======
