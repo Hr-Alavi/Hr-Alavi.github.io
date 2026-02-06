@@ -36,3 +36,6 @@ Recent Highlights & Activities
 - Published the Springer Nature book [**"Integrated Building Intelligence"**](https://link.springer.com/book/10.1007/978-3-031-68865-2) (BIM + DSS + AI), bridging research and practice in smart building lifecycle management.
 - Serving as an **Editorial Board Member** for [**Smart and Sustainable Built Environment**](https://www.emeraldgrouppublishing.com/journal/sasbe).
 - Awarded [**Fellow of the Higher Education Academy (FHEA)**](https://www.advance-he.ac.uk/fellowship/fellowship) in recognition of excellence in teaching and curriculum development.
+
+
+For a detailed overview of my academic background and professional experience, please see my full [Curriculum Vitae](/cv/).  
