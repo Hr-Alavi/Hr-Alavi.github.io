@@ -72,10 +72,11 @@ Skills
 
 Publications
 ======
-  <ul>{% for post in site.publications reversed %}
+  <ul>{% assign pubs = site.publications | where_exp: "p", "p.title and p.title != ''" %}
+  {% for post in pubs reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
-  
+    
 Talks
 ======
   <ul>{% for post in site.talks reversed %}
