@@ -72,8 +72,7 @@ Skills
 
 Publications
 ======
-  <ul>{% assign pubs = site.publications | where_exp: "p", "p.title and p.title != ''" %}
-  {% for post in pubs reversed %}
+  <ul>{% for post in site.publications reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
     
