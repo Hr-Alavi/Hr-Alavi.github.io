@@ -9,5 +9,5 @@ location: "Oxford, UK"
 
 **Institution:** [Oxford Brookes University](https://www.brookes.ac.uk/)  
 
-Advanced module covering emerging construction technologies, BIM integration, and digital workflows.
+Undergraduate module centred on hands-on BIM workflows for real-world construction projects.
 Role: **Module Leader, Assessor**.
