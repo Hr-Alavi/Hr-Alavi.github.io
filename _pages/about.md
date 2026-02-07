@@ -24,8 +24,11 @@ Recent Highlights & Activities
 ======
 ### **2025**
 - Delivered teaching in the 3D9 **Construction Management** module at the [**University of Cambridge**](https://www.cam.ac.uk/) this semester, including designing and leading all lab sessions.
+{: .justify-text}
 - Lectured on **Digital Construction** in the 4D4 module at the [**University of Cambridge**](https://www.cam.ac.uk/) (with Prof. Ioannis Brilakis).
+{: .justify-text}
 - [Presented our AEGIR work at the **University of Cambridge**](https://drf.eng.cam.ac.uk/events/drf-lunchtime-clinic-dr-mudan-wang-and-dr-hamidreza-alavi) (DRF Lunch Clinic seminar), sharing research on AI/ML pipelines and geometric digital twin model generation. [[See AEGIR Project](https://aegirproject.eu/)]
+{: .justify-text}
 - Invited speaker at [**UCL – University College London**](https://www.ucl.ac.uk/) on “From Blueprint to Digital Twin: Rethinking Design Detailing through Data-Driven Modelling” for the Design & Technology Management module.
 - Published the book [**"Structural Design and Optimization of Lifting Self-forming GFRP Elastic Gridshells based on Machine Learning"**](https://www.taylorfrancis.com/books/mono/10.1201/9781003565055/structural-design-optimization-lifting-self-forming-gfrp-elastic-gridshells-based-machine-learning-soheila-kookalani-hamidreza-alavi-farzad-pour-rahimian) (Routledge / Taylor & Francis), presenting machine-learning-driven frameworks for the design, optimisation, and performance assessment of innovative GFRP elastic gridshell structures.
 - Delivered a guest lecture at [**UCL – University College London**](https://www.ucl.ac.uk/) (The Bartlett School of Sustainable Construction) on Digital Twins / BIM / VR / AR for smart facilities and future asset management.
@@ -42,4 +45,5 @@ Recent Highlights & Activities
 - Awarded [**Fellow of the Higher Education Academy (FHEA)**](https://www.advance-he.ac.uk/fellowship/fellowship) in recognition of excellence in teaching and curriculum development.
 
 
-**For a detailed overview of my academic background and professional experience, please see my full [Curriculum Vitae](/cv/)**.  
+**For a detailed overview of my academic background and professional experience, please see my full [Curriculum Vitae](/cv/)**.
+{: .justify-text}
