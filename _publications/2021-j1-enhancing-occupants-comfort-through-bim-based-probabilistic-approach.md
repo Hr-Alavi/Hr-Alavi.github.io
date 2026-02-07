@@ -1,9 +1,9 @@
 ---
-title: "Enhancing occupants' comfort through BIM-based probabilistic approach"
+title: "Enhancing occupants’ comfort through BIM-based probabilistic approach"
 collection: publications
 category: manuscripts
 permalink: /publication/2021-enhancing-occupants-comfort-through-bim-based-probabilistic-approach
-excerpt: "Enhancing occupants' comfort through BIM-based probabilistic approach"
+excerpt: "Enhancing occupants’ comfort through BIM-based probabilistic approach"
 date: 2021-01-01
 venue: "Automation in Construction"
 paperurl: "https://doi.org/10.1016/j.autcon.2020.103528"
