@@ -38,4 +38,4 @@ Recent Highlights & Activities
 - Awarded [**Fellow of the Higher Education Academy (FHEA)**](https://www.advance-he.ac.uk/fellowship/fellowship) in recognition of excellence in teaching and curriculum development.
 
 
-**For a detailed overview of my academic background and professional experience, please see my full **[Curriculum Vitae]**(/cv/)**.  
+**For a detailed overview of my academic background and professional experience, please see my full [Curriculum Vitae](/cv/)**.  
