@@ -42,9 +42,9 @@ Industry experience
 
 Awards and honours
 ======
-* **AGAUR Scholarship Award**, Agency for Management of University and Research Grants, Catalonia, 2019 (highest score among PhD students)
+* **AGAUR Scholarship Award**, Agency for Management of University and Research Grants (highest score among PhD students)
 * **Municipal Award for Excellence in University Research (Best Proposal Award)**, Terrassa City Council, Barcelona, four consecutive years, 2018 – 2021
-* **Top Graduate Recognition, Civil Engineering**, University of South Tehran (IAU), 2014 (first graduate of the Civil Engineering Department)
+* **Top Graduate Recognition, Civil Engineering** (first graduate of the Civil Engineering Department)
 
 Professional recognition and memberships
 ======
