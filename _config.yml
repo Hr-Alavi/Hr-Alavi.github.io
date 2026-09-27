@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-GB"
-site_theme               : "default" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
+site_theme               : "default" # Only "default" is kept; the site's look comes from assets/css/site.css
 title                    : "Hamidreza Alavi"
 title_separator          : "-"
 name                     : &name "Hamidreza Alavi"
@@ -121,7 +121,6 @@ breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
 future                   : true
 read_more                : "disabled" # if enabled, adds "Read more" links to excerpts
-talkmap_link             : false      #change to true to add link to talkmap on talks page
 comments:
   provider               : # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
   disqus:

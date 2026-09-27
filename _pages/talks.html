@@ -17,10 +17,6 @@ intro: "Invited talks, guest lectures and industry seminars on BIM, digital twin
   <img src="{{ base_path }}/images/web/talks-banner.webp" alt="Speaking to a full auditorium at a research event" width="1600" height="700">
 </figure>
 
-{% if site.talkmap_link == true %}
-<p><a href="{{ base_path }}/talkmap.html">See a map of all the places I've given a talk!</a></p>
-{% endif %}
-
 {% assign talks = site.talks | sort: "date" | reverse %}
 {% assign n_speaking = 0 %}
 {% assign n_media = 0 %}
