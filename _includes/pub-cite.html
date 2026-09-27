@@ -10,8 +10,10 @@
   <div class="pub__body">
     <p class="eyebrow">Cite this work</p>
     {% if p.citation %}<p class="cite-box__text">{{ p.citation }}</p>{% endif %}
+    {% if p.note %}<p class="pub__note"><i class="fa-solid fa-circle-info" aria-hidden="true"></i>{{ p.note }}</p>{% endif %}
     <div class="pub__actions">
       {% if p.paperurl %}<a class="pill" href="{{ p.paperurl }}"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>{% if p.paperurl contains 'doi' %}View via DOI{% else %}View paper{% endif %}</a>{% endif %}
+      {% if p.oaurl %}<a class="pill pill--oa" href="{{ p.oaurl }}"><i class="fa-solid fa-lock-open" aria-hidden="true"></i>Open-access version</a>{% endif %}
       {% if p.slidesurl %}<a class="pill" href="{{ p.slidesurl }}"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i>Slides</a>{% endif %}
       {% if p.bibtexurl %}
         <button class="pill" type="button" data-bibtex="{{ base_path }}{{ p.bibtexurl }}" aria-expanded="false"><i class="fa-solid fa-quote-left" aria-hidden="true"></i>Show BibTeX</button>
@@ -21,3 +23,17 @@
     </div>
   </div>
 </div>
+
+{% if p.chapters %}
+<section class="chapter-list" aria-labelledby="chapters-title">
+  <h2 id="chapters-title">Chapters</h2>
+  <ol>
+    {% for ch in p.chapters %}
+      <li>
+        <a href="https://doi.org/{{ ch.doi }}">{{ ch.title }}</a>
+        <span>{% if ch.pages %}pp. {{ ch.pages }} · {% endif %}doi:{{ ch.doi }}</span>
+      </li>
+    {% endfor %}
+  </ol>
+</section>
+{% endif %}

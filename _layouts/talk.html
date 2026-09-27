@@ -15,7 +15,7 @@ layout: default
 {% endif %}
 
 {% include talk-kind.html talk=page %}
-{% capture meta %}{% if page.modified %}<li><i class="fa-regular fa-calendar" aria-hidden="true"></i>{{ page.modified | date: "%-d %B %Y" }}</li>{% elsif page.date %}<li><i class="fa-regular fa-calendar" aria-hidden="true"></i>{{ page.date | date: "%-d %B %Y" }}</li>{% endif %}{% if page.venue %}<li><i class="fa-solid fa-building-columns" aria-hidden="true"></i>{{ page.venue }}</li>{% endif %}{% if page.location %}<li><i class="fa-solid fa-location-dot" aria-hidden="true"></i>{{ page.location }}</li>{% endif %}{% endcapture %}
+{% capture meta %}{% if page.modified %}<li><i class="fa-regular fa-calendar" aria-hidden="true"></i>{{ page.modified | date: "%-d %B %Y" }}</li>{% elsif page.date %}<li><i class="fa-regular fa-calendar" aria-hidden="true"></i>{% if talk_day == "1" %}{{ page.date | date: "%B %Y" }}{% else %}{{ page.date | date: "%-d %B %Y" }}{% endif %}</li>{% endif %}{% if page.venue %}<li><i class="fa-solid fa-building-columns" aria-hidden="true"></i>{{ page.venue }}</li>{% endif %}{% if page.location %}<li><i class="fa-solid fa-location-dot" aria-hidden="true"></i>{{ page.location }}</li>{% endif %}{% endcapture %}
 
 {% assign has_side = false %}
 {% if page.author_profile or layout.author_profile or page.sidebar %}{% assign has_side = true %}{% endif %}

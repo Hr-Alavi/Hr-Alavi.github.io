@@ -3,71 +3,27 @@ layout: archive
 permalink: /gallery/
 title: "Gallery"
 author_profile: true
+eyebrow: "Moments"
+intro: "Conferences, project meetings, lectures and summer schools with colleagues and students."
 ---
 
 {% include base_path %}
+{% comment %}
+  The photos come from the `moments` list in _pages/about.md (the homepage uses
+  the same list). To add a photo, put a -sm.webp and a -lg.webp version in
+  images/web/ and add an entry there; `caption:` shows the event name.
+{% endcomment %}
 
-<style>
-  .gallery-year { margin-top: 1.5rem; }
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    gap: 14px;
-    margin-top: 12px;
-  }
-  .gallery-card {
-    border: 1px solid rgba(0,0,0,0.08);
-    border-radius: 14px;
-    overflow: hidden;
-    background: rgba(255,255,255,0.02);
-  }
-  .gallery-card img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-    display: block;
-  }
-  .gallery-meta { padding: 10px 12px; }
-  .gallery-title { font-weight: 700; margin: 0 0 6px 0; }
-  .gallery-caption { margin: 0; font-size: 0.92rem; opacity: 0.9; }
-  .gallery-link a { font-size: 0.92rem; }
-</style>
-
-<div class="gallery-year">
-  <h2 class="archive__subtitle">2025</h2>
-  <div class="gallery-grid">
-    <!-- Card 1 -->
-    <div class="gallery-card">
-      <img src="/images/1757002714077.png" alt="EC3 2025, Porto">
-      <div class="gallery-meta">
-        <p class="gallery-title">EC3 2025 (Porto)</p>
-        <p class="gallery-caption">Conference presentation & networking.</p>
-        <p class="gallery-link"><a href="https://example.com" target="_blank" rel="noopener">Event page</a></p>
-      </div>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="gallery-card">
-      <img src="/images/gallery/isarc-montreal-2025.png" alt="ISARC 2025, Montreal">
-      <div class="gallery-meta">
-        <p class="gallery-title">ISARC 2025 (Montreal)</p>
-        <p class="gallery-caption">Digital twins, BIM & AR/VR topics.</p>
-      </div>
-    </div>
-
-    <!-- Add more cards here -->
-  </div>
+{% assign home = site.pages | where: "url", "/" | first %}
+<div class="gallery-grid">
+  {% for m in home.moments %}
+    <figure class="gallery-item reveal" style="--d: {{ forloop.index0 | modulo: 3 }}">
+      <a href="{{ base_path }}/images/{{ m.image }}-lg.webp" data-lightbox{% if m.caption %} data-caption="{{ m.caption | escape }}"{% endif %}>
+        <img src="{{ base_path }}/images/{{ m.image }}-sm.webp" alt="{{ m.alt | escape }}" loading="lazy">
+      </a>
+      {% if m.caption %}<figcaption>{{ m.caption }}</figcaption>{% endif %}
+    </figure>
+  {% endfor %}
 </div>
 
-<div class="gallery-year">
-  <h2 class="archive__subtitle">2024</h2>
-  <div class="gallery-grid">
-    <div class="gallery-card">
-      <img src="/images/gallery/cambridge-teaching-3d9-2024.png" alt="Cambridge teaching">
-      <div class="gallery-meta">
-        <p class="gallery-title">Teaching (Cambridge)</p>
-        <p class="gallery-caption">Lab sessions & coursework activities.</p>
-      </div>
-    </div>
-  </div>
-</div>
+{% include lightbox.html %}

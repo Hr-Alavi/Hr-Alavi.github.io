@@ -15,7 +15,8 @@ layout: default
 {% assign bio = parts | first %}
 {% if parts.size > 1 %}{% assign highlights = parts | last %}{% endif %}
 
-{% assign pubs_counted = site.publications | where_exp: "p", "p.status != 'Under Review'" %}
+{% comment %} Counted: everything published (not under review, not preprints) {% endcomment %}
+{% assign pubs_counted = site.publications | where_exp: "p", "p.status != 'Under Review'" | where_exp: "p", "p.category != 'preprints'" %}
 {% assign books = site.publications | where: "category", "books" | sort: "date" | reverse %}
 {% assign projects = site.portfolio | sort: "start" | reverse %}
 {% assign modules = site.teaching | where_exp: "t", "t.venue" %}
@@ -102,7 +103,7 @@ layout: default
       {% endif %}
       <div class="about__actions">
         <a class="button button--primary" href="{{ base_path }}/cv/"><i class="fa-regular fa-file-lines" aria-hidden="true"></i> Full CV</a>
-        {% if author.uri %}<a class="button button--ghost" href="{{ author.uri }}">Cambridge profile <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>{% endif %}
+        {% if author.uri %}<a class="button button--ghost" href="{{ author.uri }}">{{ author.uri_label | default: "Staff profile" }} <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>{% endif %}
       </div>
     </div>
   </div>
@@ -147,7 +148,8 @@ layout: default
       <a class="link-arrow" href="{{ base_path }}/portfolio/">All projects <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
     </header>
     <div class="project-grid">
-      {% for p in projects limit: 6 %}
+      {% assign home_projects = projects | where_exp: "p", "p.home != false" %}
+      {% for p in home_projects limit: 6 %}
         {% include project-card.html project=p delay=forloop.index0 %}
       {% endfor %}
     </div>
@@ -173,6 +175,7 @@ layout: default
             <p class="book__publisher">{{ b.venue }} · {{ b.date | date: "%Y" }}</p>
             <h3 class="book__title"><a href="{{ b.paperurl | default: b.url }}">{{ b.title }}</a></h3>
             <p class="book__authors">{{ b_authors }}</p>
+            {% if b.note %}<p class="pub__note"><i class="fa-solid fa-language" aria-hidden="true"></i>{{ b.note }}</p>{% endif %}
             <a class="button button--ghost button--sm" href="{{ base_path }}{{ b.url }}">Cite this book</a>
           </div>
         </article>
@@ -210,6 +213,7 @@ layout: default
         <p class="section__lead">{{ page.moments_intro }}</p>
       </div>
       <div class="moments__nav">
+        <a class="link-arrow" href="{{ base_path }}/gallery/">View gallery <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
         <button class="round-btn" type="button" data-scroll-dir="prev" aria-label="Scroll photos left"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
         <button class="round-btn" type="button" data-scroll-dir="next" aria-label="Scroll photos right"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
       </div>
@@ -248,9 +252,4 @@ layout: default
   </div>
 </section>
 
-<dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
-  <button class="lightbox__btn lightbox__btn--close" type="button" data-lb-close aria-label="Close"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
-  <button class="lightbox__btn lightbox__btn--prev" type="button" data-lb-nav="prev" aria-label="Previous photo"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
-  <button class="lightbox__btn lightbox__btn--next" type="button" data-lb-nav="next" aria-label="Next photo"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
-  <figure><img src="" alt=""><figcaption></figcaption></figure>
-</dialog>
+{% include lightbox.html %}

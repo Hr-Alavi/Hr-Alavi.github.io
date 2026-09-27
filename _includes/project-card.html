@@ -5,7 +5,11 @@
 {% assign name = p.short_title | default: p.title %}
 <article class="project-card reveal"{% if include.delay %} style="--d: {{ include.delay }}"{% endif %}>
   <a class="project-card__media" href="{{ base_path }}{{ p.url }}" tabindex="-1" aria-hidden="true">
-    {% if p.logo %}<img src="{{ base_path }}/images/{{ p.logo }}" alt="" width="500" height="300" loading="lazy">{% endif %}
+    {% if p.logo %}
+      <img src="{{ base_path }}/images/{{ p.logo }}" alt="" width="500" height="300" loading="lazy">
+    {% else %}
+      <span class="project-placeholder"><i class="fa-solid {{ p.icon | default: 'fa-diagram-project' }}"></i><b>{{ name }}</b></span>
+    {% endif %}
   </a>
   <div class="project-card__body">
     <div class="project-card__top">
@@ -17,6 +21,7 @@
     </div>
     <h3 class="project-card__title"><a href="{{ base_path }}{{ p.url }}">{{ name }}</a></h3>
     {% if p.subtitle %}<p class="project-card__sub">{{ p.subtitle }}</p>{% endif %}
+    {% if p.role %}<p class="project-card__sponsor"><i class="fa-solid fa-user-gear" aria-hidden="true"></i><span>{{ p.role }}</span></p>{% endif %}
     {% if p.sponsor %}<p class="project-card__sponsor"><i class="fa-solid fa-landmark" aria-hidden="true"></i><span>{{ p.sponsor }}</span></p>{% endif %}
     <div class="project-card__links">
       <a href="{{ base_path }}{{ p.url }}">Details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i><span class="visually-hidden"> about {{ name }}</span></a>

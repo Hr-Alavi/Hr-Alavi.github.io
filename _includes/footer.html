@@ -41,7 +41,8 @@
       <h2 class="site-footer__title">Contact</h2>
       <ul>
         {% if author.email %}<li><a href="mailto:{{ author.email }}"><i class="fa-solid fa-envelope" aria-hidden="true"></i>{{ author.email }}</a></li>{% endif %}
-        {% if author.uri %}<li><a href="{{ author.uri }}"><i class="fa-solid fa-building-columns" aria-hidden="true"></i>Cambridge profile</a></li>{% endif %}
+        {% if author.uri %}<li><a href="{{ author.uri }}"><i class="fa-solid fa-id-badge" aria-hidden="true"></i>{{ author.uri_label | default: "Website" }}</a></li>{% endif %}
+        {% for link in author.extra_links %}<li><a href="{{ link.url }}" title="{{ link.title | default: link.label }}"><i class="{{ link.icon | default: 'fa-solid fa-link' }}" aria-hidden="true"></i>{{ link.label }}</a></li>{% endfor %}
         {% if site.atom_feed.hide != true %}<li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}"><i class="fa-solid fa-rss" aria-hidden="true"></i>{{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}</a></li>{% endif %}
       </ul>
     </div>

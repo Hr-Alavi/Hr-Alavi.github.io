@@ -30,11 +30,27 @@ author:
   avatar           : "web/profile.jpg" # web-optimised copy of profile.png (40 KB instead of 535 KB)
   name             : "Hamidreza Alavi, PhD, MASCE, FHEA"
   pronouns         : # example: "she/her"  
-  bio              : "Senior Lecturer in Construction Informatics at OBU and Academic Affiliate at the University of Cambridge"
+  bio              : "Senior Lecturer in Construction Informatics at Oxford Brookes University and Academic Affiliate at the University of Cambridge"
   location         : "Oxford, UK"
   employer         : # "Oxford Brookes University", "University of Cambridge"
-  uri              : "https://www.construction.cam.ac.uk/staff/dr-hamidreza-alavi"
-  email            : "h.alavi@brookes.ac.uk" 
+  uri              : "https://www.brookes.ac.uk/profiles/staff/hamidreza-alavi"
+  uri_label        : "Oxford Brookes profile"
+  email            : "h.alavi@brookes.ac.uk"
+
+  # Further institutional profiles (shown in the sidebar, footer and CV)
+  extra_links:
+    - label: "Cambridge CIT Lab"
+      title: "Construction Information Technology Laboratory, University of Cambridge (former researchers)"
+      url: "https://cit.eng.cam.ac.uk/former-researchers-and-staff-0"
+      icon: "fa-solid fa-building-columns"
+    - label: "UPC research portal"
+      title: "FUTUR, research portal of the Universitat Politècnica de Catalunya"
+      url: "https://futur.upc.edu/HamidrezaAlavi"
+      icon: "fa-solid fa-flask"
+    - label: "UPC teaching & supervision"
+      title: "APRÈN, teaching and supervised theses at the Universitat Politècnica de Catalunya"
+      url: "https://apren.upc.edu/en/professorat/1231545"
+      icon: "fa-solid fa-user-graduate"
 
   # Academic websites
   academia         : # URL
@@ -87,13 +103,17 @@ author:
   zhihu            : # Username
 
 # Publication Category - The following the list of publication categories and their headings
-publication_category:
+publication_category:   # `short` is the label on the publications filter buttons
   books:
     title: 'Books'
   manuscripts:
-    title: 'Journal Articles'    
+    title: 'Journal Articles'
+    short: 'Journals'
   conferences:
     title: 'Conference Papers'
+    short: 'Conferences'
+  preprints:
+    title: 'Preprints'
 
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/ for social media previews
@@ -129,7 +149,7 @@ staticman:
       options:
         format           : "iso8601" # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
 atom_feed:
-  hide                   : false     # change to true to hide the RSS feed in the footer
+  hide                   : true      # the feed only lists blog posts, and the site has none
   path                   : # blank (default) uses feed.xml
 
 

@@ -4,7 +4,7 @@ title: "Teaching"
 permalink: /teaching/
 author_profile: true
 eyebrow: "Teaching & curriculum"
-intro: "Undergraduate, postgraduate and professional teaching in BIM, digital construction and construction management, from module leadership to coursework and lab design."
+intro: "Undergraduate, postgraduate and professional teaching in BIM, digital construction and construction management, from module leadership to coursework and lab design, plus research supervision."
 
 # Each group collects the _teaching entries whose `venue` contains `match`.
 institutions:
@@ -12,18 +12,70 @@ institutions:
     match: "University of Cambridge"
     location: "Cambridge, UK"
     icon: "fa-building-columns"
+    link: "https://cit.eng.cam.ac.uk/former-researchers-and-staff-0"
+    link_label: "CIT Lab profile"
   - name: "Oxford Brookes University"
     match: "Oxford Brookes University"
     location: "Oxford, UK"
     icon: "fa-building-columns"
+    link: "https://www.brookes.ac.uk/profiles/staff/hamidreza-alavi"
+    link_label: "Staff profile"
   - name: "Universitat Politècnica de Catalunya (UPC)"
     match: "Universitat Politècnica de Catalunya"
     location: "Barcelona, Spain"
     icon: "fa-building-columns"
+    link: "https://apren.upc.edu/en/professorat/1231545"
+    link_label: "Teaching record (APRÈN)"
   - name: "EADIC – Engineering, Training & Development Solutions"
     match: "EADIC"
     location: "Online / Spain"
     icon: "fa-laptop-code"
+
+# Supervision section (edit freely)
+supervision:
+  summary: "Across his academic career, Hamidreza has supervised more than 50 postgraduate research dissertations and undergraduate final-year projects, several of which led to peer-reviewed publications and awards."
+  groups:
+    - title: "Oxford Brookes University"
+      level: "MSc dissertations · 2026–"
+      items:
+        - "LiDAR-enabled monitoring of construction progress with integrated risk"
+        - "Artificial intelligence for risk identification and mitigation in UK construction projects"
+        - "Knowledge-graph-based construction scheduling"
+        - "Integrating BIM and circular-economy principles for material reuse"
+        - "BIM and lean construction for infrastructure delivery"
+        - "Readiness for BIM-enabled digital twin adoption in SMEs"
+        - "Completed (2026): AI in construction procurement; digital-twin-driven data integration; supply-chain optimisation; sensor-based predictive risk analytics"
+    - title: "Universitat Politècnica de Catalunya (UPC)"
+      level: "Master's and bachelor's theses · 2018–2024"
+      link: "https://apren.upc.edu/en/professorat/1231545"
+      link_label: "Full record on APRÈN"
+      items:
+        - "BIM-based decision support system for building life cycle analysis (MSc, 2024)"
+        - "Data analytics for facility management work orders (MSc, 2023)"
+        - "BIM-integrated digital twin framework for improving data visualisation (MSc, 2023)"
+        - "BIM-based machine learning framework for healthcare facilities (MSc, 2023)"
+        - "Integrated real-estate asset management through digital twins: a case study (MSc, 2021)"
+        - "BIM modelling of the building services of the TR5 building, Campus de Terrassa (MSc, 2019)"
+        - "Developing BIM visualisation for facility managers (BSc, 2021)"
+        - "BIM modelling process of the GAIA building's HVAC system (BSc, 2020)"
+        - "Integrating satisfaction surveys into building information models (BSc, 2018)"
+    - title: "University of Cambridge"
+      level: "Undergraduate supervision · 2024–25"
+      items:
+        - "Supervised ten undergraduates in 3M1 Mathematical Methods (Emmanuel and Fitzwilliam Colleges)"
+        - "Academic advisor to a doctoral researcher in the Department of Engineering"
+    - title: "Doctoral and examining roles"
+      level: "PhD · MSc"
+      items:
+        - "Co-supervision of a PhD student"
+        - "Academic advisor to a doctoral researcher at UPC, leading to peer-reviewed publications"
+        - "External examiner for PhD theses and internal examiner for MSc theses at UPC"
+  prospective_topics:
+    - "Digital twins for asset condition assessment, maintenance planning and retrofit"
+    - "AI and large language models applied to construction, building and asset data"
+    - "Computer vision, LiDAR and point-cloud methods for progress and condition monitoring"
+    - "Data-driven procurement, supply-chain and risk decision-making"
+    - "Circular economy and net-zero decision support in early design stages"
 ---
 
 {% include base_path %}
@@ -39,6 +91,7 @@ institutions:
   <li class="chip"><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i><b>{{ modules.size }}</b> modules &amp; courses</li>
   <li class="chip"><i class="fa-solid fa-building-columns" aria-hidden="true"></i><b>{{ page.institutions.size }}</b> institutions</li>
   <li class="chip"><i class="fa-solid fa-user-graduate" aria-hidden="true"></i><b>{{ n_ug }}</b> undergraduate · <b>{{ n_pg }}</b> postgraduate &amp; professional</li>
+  <li class="chip"><a href="#supervision"><i class="fa-solid fa-people-group" aria-hidden="true"></i>50+ supervised dissertations</a></li>
 </ul>
 
 <div class="note">
@@ -54,7 +107,7 @@ institutions:
       <span class="inst__icon" aria-hidden="true"><i class="fa-solid {{ inst.icon | default: 'fa-building-columns' }}"></i></span>
       <div>
         <h2 class="inst__name" id="{{ inst.name | slugify }}-title">{{ inst.name }}</h2>
-        <p class="inst__meta">{{ inst.location }} · {{ items.size }} module{% if items.size != 1 %}s{% endif %}</p>
+        <p class="inst__meta">{{ inst.location }} · {{ items.size }} module{% if items.size != 1 %}s{% endif %}{% if inst.link %} · <a href="{{ inst.link }}">{{ inst.link_label | default: "Profile" }} <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>{% endif %}</p>
       </div>
     </header>
     <div class="module-grid">
@@ -82,3 +135,43 @@ institutions:
   </section>
   {% endif %}
 {% endfor %}
+
+{% assign sup = page.supervision %}
+{% if sup %}
+<section class="inst" id="supervision" aria-labelledby="supervision-title">
+  <header class="inst__head">
+    <span class="inst__icon" aria-hidden="true"><i class="fa-solid fa-people-group"></i></span>
+    <div>
+      <h2 class="inst__name" id="supervision-title">Supervision</h2>
+      <p class="inst__meta">MSc, BSc and doctoral · Oxford Brookes, UPC and Cambridge</p>
+    </div>
+  </header>
+  {% if sup.summary %}<p class="supervision__summary">{{ sup.summary }}</p>{% endif %}
+  <div class="module-grid">
+    {% for g in sup.groups %}
+      <article class="module reveal" style="--d: {{ forloop.index0 | modulo: 2 }}">
+        <div><span class="badge">{{ g.level }}</span></div>
+        <h3 class="module__title">{{ g.title }}</h3>
+        <ul class="supervision__list">
+          {% for it in g.items %}<li>{{ it }}</li>{% endfor %}
+        </ul>
+        {% if g.link %}<p class="module__role"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i><a href="{{ g.link }}">{{ g.link_label | default: "More" }}</a></p>{% endif %}
+      </article>
+    {% endfor %}
+  </div>
+
+  {% if sup.prospective_topics %}
+  <div class="prospective reveal">
+    <div>
+      <p class="eyebrow">Prospective students</p>
+      <h3>PhD and MPhil enquiries welcome</h3>
+      <p>Hamidreza welcomes enquiries from prospective PhD and MPhil candidates, including applicants developing proposals for funded studentships, scholarships or fellowships. Areas of particular interest:</p>
+      <ul>
+        {% for t in sup.prospective_topics %}<li>{{ t }}</li>{% endfor %}
+      </ul>
+    </div>
+    {% if site.author.email %}<a class="button button--primary" href="mailto:{{ site.author.email }}?subject=PhD%2FMPhil%20enquiry"><i class="fa-regular fa-envelope" aria-hidden="true"></i> Send a CV and research outline</a>{% endif %}
+  </div>
+  {% endif %}
+</section>
+{% endif %}

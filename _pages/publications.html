@@ -4,7 +4,7 @@ title: "Publications"
 permalink: /publications/
 author_profile: true
 eyebrow: "Research output"
-intro: "Books, journal articles and conference papers on AI, digital twins and BIM for the built environment. Search, filter by type, or grab a citation."
+intro: "Books, journal articles, conference papers and preprints on AI, digital twins and BIM for the built environment. Search, filter by type, or grab a citation."
 ---
 
 {% include base_path %}
@@ -63,20 +63,21 @@ intro: "Books, journal articles and conference papers on AI, digital twins and B
 <div data-pubs>
   <div class="pub-toolbar" role="search">
     <label class="pub-search">
-      <span class="visually-hidden">Search publications</span>
+      <span class="visually-hidden">Search publications by title, venue or co-author</span>
       <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-      <input type="search" id="pub-search" placeholder="Search titles, venues or co-authors…" autocomplete="off">
+      <input type="search" id="pub-search" placeholder="Search title, venue, author…" autocomplete="off">
     </label>
     <div class="pub-filters" role="group" aria-label="Filter by type">
       <button class="chip-btn is-active" type="button" data-filter="all" aria-pressed="true">All <span>{{ pubs.size }}</span></button>
       {% for category in site.publication_category %}
         {% assign n = pubs | where: "category", category[0] | size %}
-        {% if n > 0 %}<button class="chip-btn" type="button" data-filter="{{ category[0] }}" aria-pressed="false">{{ category[1].title }} <span>{{ n }}</span></button>{% endif %}
+        {% if n > 0 %}<button class="chip-btn" type="button" data-filter="{{ category[0] }}" aria-pressed="false" title="{{ category[1].title }}">{{ category[1].short | default: category[1].title }} <span>{{ n }}</span></button>{% endif %}
       {% endfor %}
     </div>
   </div>
 
-  <p class="pub-count" aria-live="polite">Showing <b data-pub-shown>{{ pubs.size }}</b> of {{ pubs.size }} publications{% if site.author.googlescholar %} · also on <a href="{{ site.author.googlescholar }}">Google Scholar</a>{% endif %}</p>
+  {% assign a = site.author %}
+  <p class="pub-count" aria-live="polite">Showing <b data-pub-shown>{{ pubs.size }}</b> of {{ pubs.size }} publications · also on {% if a.googlescholar %}<a href="{{ a.googlescholar }}">Google Scholar</a>, {% endif %}{% if a.scopus %}<a href="{{ a.scopus }}">Scopus</a>, {% endif %}{% if a.orcid %}<a href="{{ a.orcid }}">ORCID</a> and {% endif %}<a href="https://futur.upc.edu/HamidrezaAlavi">UPC FUTUR</a></p>
 
   {% for y in by_year %}
     <section class="pub-year" id="y{{ y.name }}" aria-labelledby="y{{ y.name }}-label">

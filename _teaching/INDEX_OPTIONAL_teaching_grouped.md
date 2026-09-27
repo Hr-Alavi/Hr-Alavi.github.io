@@ -8,7 +8,9 @@ author_profile: true
 ## Oxford Brookes University
 - [BIM in Practice (PMAN7007)](/teaching/obu-pman7007-bim-in-practice)
 - [Advanced Construction Technology and BIM (PMAN7006)](/teaching/obu-pman7006-advanced-construction-technology-bim)
+- [Construction Communication and Information Technology 1 (CONM4003)](/teaching/obu-conm4003-construction-it-1)
 - [Construction Communication and Information Technology 2](/teaching/obu-conm5006-construction-it-2)
+- [Facilities and Maintenance Management (CONM6010)](/teaching/obu-conm6010-facilities-maintenance-management)
 
 ## University of Cambridge
 - [A2: Lab Model Structures (IB)](/teaching/cambridge-ib-a2-lab-model-structures)

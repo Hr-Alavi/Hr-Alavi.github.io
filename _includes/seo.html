@@ -131,7 +131,7 @@
 {% if page.url == "/" %}
   {% comment %} Structured data describing the site owner (helps search engines link the profiles) {% endcomment %}
   {% assign a = site.author %}
-  {% capture same_as_list %}{% if a.googlescholar %}{{ a.googlescholar }}|{% endif %}{% if a.orcid %}{{ a.orcid }}|{% endif %}{% if a.researchgate %}{{ a.researchgate }}|{% endif %}{% if a.scopus %}{{ a.scopus }}|{% endif %}{% if a.linkedin %}https://www.linkedin.com/in/{{ a.linkedin }}|{% endif %}{% if a.github %}https://github.com/{{ a.github }}|{% endif %}{% if a.uri %}{{ a.uri }}|{% endif %}{% endcapture %}
+  {% capture same_as_list %}{% if a.googlescholar %}{{ a.googlescholar }}|{% endif %}{% if a.orcid %}{{ a.orcid }}|{% endif %}{% if a.researchgate %}{{ a.researchgate }}|{% endif %}{% if a.scopus %}{{ a.scopus }}|{% endif %}{% if a.linkedin %}https://www.linkedin.com/in/{{ a.linkedin }}|{% endif %}{% if a.github %}https://github.com/{{ a.github }}|{% endif %}{% if a.uri %}{{ a.uri }}|{% endif %}{% for l in a.extra_links %}{{ l.url }}|{% endfor %}{% endcapture %}
   {% assign same_as = same_as_list | split: "|" %}
   <script type="application/ld+json">
     {

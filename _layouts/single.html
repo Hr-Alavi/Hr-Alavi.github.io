@@ -25,6 +25,7 @@ layout: default
       {% when "manuscripts" %}{% assign eyebrow = "Journal article" %}
       {% when "conferences" %}{% assign eyebrow = "Conference paper" %}
       {% when "books" %}{% assign eyebrow = "Book" %}
+      {% when "preprints" %}{% assign eyebrow = "Preprint" %}
       {% else %}{% assign eyebrow = "Publication" %}
     {% endcase %}
     {% if page.status %}{% assign eyebrow = eyebrow | append: " · " | append: page.status %}{% endif %}

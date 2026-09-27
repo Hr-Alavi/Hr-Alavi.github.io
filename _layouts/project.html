@@ -20,6 +20,7 @@ layout: default
       {% if page.subtitle %}<p class="page-hero__intro">{{ page.subtitle }}</p>{% endif %}
 
       <dl class="facts">
+        {% if page.role %}<div><dt>Role</dt><dd>{{ page.role }}</dd></div>{% endif %}
         {% if page.sponsor %}<div><dt>Funding</dt><dd>{{ page.sponsor }}</dd></div>{% endif %}
         {% if page.period %}<div><dt>Period</dt><dd>{{ page.period }}</dd></div>{% endif %}
         {% if page.end %}
@@ -34,6 +35,8 @@ layout: default
     </div>
     {% if page.logo %}
       <div class="project-hero__logo"><img src="{{ base_path }}/images/{{ page.logo }}" alt="{{ page.short_title | default: page.title }} project graphic" width="500" height="300"></div>
+    {% else %}
+      <div class="project-hero__logo project-hero__logo--placeholder" aria-hidden="true"><span class="project-placeholder"><i class="fa-solid {{ page.icon | default: 'fa-diagram-project' }}"></i><b>{{ page.short_title | default: page.title }}</b></span></div>
     {% endif %}
   </div>
 </header>

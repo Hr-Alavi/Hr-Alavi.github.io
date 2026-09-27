@@ -1,8 +1,12 @@
 {% comment %}
   Sets talk_kind / talk_label / talk_icon for a talk. Pass talk=<document>.
   An explicit `kind:` in a talk's front matter wins (talk, lecture, seminar,
-  press, tv, award); otherwise it is guessed from the venue, title and text.
+  press, tv, award, video); otherwise it is guessed from the venue, title and text.
+  Also sets talk_when: "1 Mar 2025", or "Mar 2025" when the date is the 1st
+  (dates known only to the month are stored as the 1st).
 {% endcomment %}
+{% assign talk_day = include.talk.date | date: "%-d" %}
+{% if talk_day == "1" %}{% assign talk_when = include.talk.date | date: "%b %Y" %}{% else %}{% assign talk_when = include.talk.date | date: "%-d %b %Y" %}{% endif %}
 {% assign talk_kind = include.talk.kind | downcase %}
 {% if talk_kind == "" %}
   {% assign talk_text = include.talk.excerpt | strip_html | downcase %}
@@ -17,6 +21,7 @@
   {% when "tv" %}{% assign talk_label = "TV" %}{% assign talk_icon = "fa-tv" %}
   {% when "press" %}{% assign talk_label = "Press" %}{% assign talk_icon = "fa-newspaper" %}
   {% when "award" %}{% assign talk_label = "Award" %}{% assign talk_icon = "fa-award" %}
+  {% when "video" %}{% assign talk_label = "Video" %}{% assign talk_icon = "fa-circle-play" %}
   {% when "lecture" %}{% assign talk_label = "Guest lecture" %}{% assign talk_icon = "fa-chalkboard-user" %}
   {% when "seminar" %}{% assign talk_label = "Seminar" %}{% assign talk_icon = "fa-people-group" %}
   {% else %}{% assign talk_label = "Invited talk" %}{% assign talk_icon = "fa-microphone-lines" %}

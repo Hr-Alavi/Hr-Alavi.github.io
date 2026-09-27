@@ -38,13 +38,17 @@ credentials:
     title: "Member of the American Society of Civil Engineers"
   - label: "SASBE"
     title: "Editorial Board Member, Smart and Sustainable Built Environment"
+  - label: "Editor"
+    title: "Guest Editor, special issues in Sensors and Buildings (MDPI)"
+  - label: "REF"
+    title: "Expert Reviewer, UK Research Excellence Framework (REF 2029)"
 
 themes_intro: "Six connected threads run through my research, from reality capture on site to AI-supported decisions across the asset lifecycle. Each card opens the related publications."
 themes:            # `query` pre-fills the publications search; use | for "or"
   - title: "AI & Machine Learning"
     icon: "fa-brain"
     text: "Interpretable machine learning, deep generative models and large language models that support design, maintenance and life-cycle decisions."
-    query: "machine learning|generative|language model|ai-driven|predicting|neural"
+    query: "machine learning|generative|language model|llm|ai-driven|predicting|neural"
   - title: "Digital Twins"
     icon: "fa-cubes"
     text: "Occupant-centric digital twins that connect BIM, sensor and operational data across buildings, roads and wider infrastructure."
@@ -66,7 +70,7 @@ themes:            # `query` pre-fills the publications search; use | for "or"
     text: "Decision support for energy efficiency, steel reuse, circular design and life-cycle assessment in construction."
     query: "energy|sustainab|reuse|circular|life cycle"
 
-projects_intro: "Horizon Europe, H2020, national and regional projects on renovation, energy-efficient buildings, circular design, road maintenance, BIM for facility management and human-centric digital twins."
+projects_intro: "Horizon Europe, H2020, national and regional projects on renovation, energy-efficient buildings, circular design, road maintenance, healthcare, BIM for facility management and human-centric digital twins."
 books_intro: "Monographs bridging research and practice in building intelligence and machine-learning-driven structural design."
 highlights_intro: "Teaching, talks, books and conferences, year by year."
 
@@ -96,21 +100,36 @@ moments:           # image = path inside /images/ without the -sm/-lg.webp suffi
     alt: "Two colleagues at a conference venue"
 
 cta_title: "Get in touch"
-cta_text: "For research collaborations, teaching, student projects or speaking invitations, feel free to reach out by email."
+cta_text: "For research collaborations, PhD and MPhil supervision, teaching or speaking invitations, feel free to reach out by email."
 ---
 
-Hamidreza Alavi is a Senior Lecturer in Construction Informatics at [Oxford Brookes University](https://www.brookes.ac.uk/) and an Academic Affiliate at the [University of Cambridge](https://www.cam.ac.uk/). His research and teaching focus on artificial intelligence, machine learning, digital twins, and data-driven decision-making for the built environment, with applications in infrastructure management, construction automation, and facility and asset management.
+Hamidreza Alavi is a Senior Lecturer in Construction Informatics at [Oxford Brookes University](https://www.brookes.ac.uk/profiles/staff/hamidreza-alavi) and an Academic Affiliate at the [University of Cambridge](https://www.cam.ac.uk/). His research and teaching focus on artificial intelligence, machine learning, digital twins, and data-driven decision-making for the built environment, with applications in infrastructure management, construction automation, and facility and asset management.
 {: .justify-text}
-Previously, he served as a [Research and Teaching Associate in the Department of Engineering at the University of Cambridge](https://www.construction.cam.ac.uk/staff/dr-hamidreza-alavi), where he developed curriculum and contributed to significant Horizon Europe projects, leading digital twin development initiatives. He designs and delivers modules on Building Information Modeling (BIM) and digital twin technologies, integrating real-world case studies with advanced computational and data-driven methods. His work shapes next-generation digital twin frameworks that integrate AI, BIM, and sensing technologies across the asset lifecycle. He is a Member of the American Society of Civil Engineers (MASCE) and a Fellow of the Higher Education Academy (FHEA), with extensive experience in innovative pedagogical approaches in engineering education.
+Previously, he served as a [Research and Teaching Associate in the Department of Engineering at the University of Cambridge](https://cit.eng.cam.ac.uk/former-researchers-and-staff-0), where he developed curriculum and contributed to significant Horizon Europe projects, leading digital twin development initiatives. He designs and delivers modules on Building Information Modeling (BIM) and digital twin technologies, integrating real-world case studies with advanced computational and data-driven methods. His work shapes next-generation digital twin frameworks that integrate AI, BIM, and sensing technologies across the asset lifecycle. He is a Member of the American Society of Civil Engineers (MASCE) and a Fellow of the Higher Education Academy (FHEA), with extensive experience in innovative pedagogical approaches in engineering education.
 {: .justify-text}
-Prior to joining Cambridge, he was an Associate Professor at the [Polytechnic University of Catalonia (UPC)](https://www.upc.edu/en), where he led research in BIM-based facility management, digital construction, and decision-support systems. He has played key leadership roles in international and interdisciplinary research projects focused on advancing digitalisation and intelligence in the built environment. He was also a Visiting Scholar in the [BIM TOPiCS Lab](https://bimtopics.civil.ubc.ca/), Faculty of Applied Science, at the Vancouver Campus of the [University of British Columbia](https://www.ubc.ca/).
+Prior to joining Cambridge, he was an Adjunct Professor at the [Polytechnic University of Catalonia (UPC)](https://futur.upc.edu/HamidrezaAlavi), where he led research in BIM-based facility management, digital construction, and decision-support systems. He has played key leadership roles in international and interdisciplinary research projects focused on advancing digitalisation and intelligence in the built environment. He was also a Visiting Research Fellow in the [BIM TOPiCS Lab](https://bimtopics.civil.ubc.ca/), Faculty of Applied Science, at the Vancouver Campus of the [University of British Columbia](https://www.ubc.ca/).
 {: .justify-text}
-His research has been widely published in high-impact journals and international conferences, and he serves as an Editorial Board Member of the [Smart and Sustainable Built Environment](https://www.emeraldgrouppublishing.com/journal/sasbe) journal. He has supervised and co-supervised numerous undergraduate and postgraduate research projects and is committed to inclusive mentoring and capacity building in engineering education. Through his work, he is committed to bridging research and education to develop intelligent, sustainable, and technology-driven solutions for the construction and infrastructure sectors.
+His research has been widely published in high-impact journals and international conferences, and he serves as an Editorial Board Member of the [Smart and Sustainable Built Environment](https://www.emeraldgrouppublishing.com/journal/sasbe) journal. He has supervised and co-supervised numerous [undergraduate and postgraduate research projects](/teaching/#supervision) and is committed to inclusive mentoring and capacity building in engineering education. Through his work, he is committed to bridging research and education to develop intelligent, sustainable, and technology-driven solutions for the construction and infrastructure sectors.
 {: .justify-text}
 
 <!-- highlights -->
 
+### **2026**
+- Serving as **Area Chair** and **Session Chair** for the Cambridge conference series (University of Cambridge, July 2026), including the 23rd International Conference on Smart and Sustainable Built Environment (**SASBE 2026**), the 2nd **Building Digital Twin Scientific Conference**, **FUTUREROADS 2026**, **CONVR 2026** and **ICIO 2026**.
+- Invited talk and workshop **"Twin Talks: 7D BIM for Facility Management"** at the **Schulich School of Engineering, University of Calgary**, Canada (April 2026).
+- **Guest Editor** of the *Sensors* Special Issue [**"Intelligent Sensing, Digital Twins, and AI Applications for Smart Infrastructure and the Built Environment"**](https://www.mdpi.com/journal/sensors/special_issues/LHS37V72XJ).
+- Member of the **International Scientific Committee** of **DFBI 2026** (University of Barcelona, 30 March – 1 April 2026).
+- **Reviewer** for [**GDI 2026**](https://www.gdi2026.com/), the International Conference of Green + Digital + Intelligent Built Environments, held jointly with **DigiBUILT 2026** (online, 7–8 December 2026).
+- New journal papers: [**"Geometric Fidelity Uncertainty in Cognitive Digital Twins"**](https://doi.org/10.1115/1.4072155) in the *ASCE-ASME Journal of Risk and Uncertainty in Engineering Systems, Part B*; [**"Mapping digital twin applications in infrastructure and the built environment"**](https://doi.org/10.1016/j.autcon.2026.106778) in *Automation in Construction*; and [**"Digital Twin-Enabled Vehicle Routing in Logistics and Transportation"**](https://doi.org/10.3390/s26195986) in *Sensors*.
+- Our DFBI 2025 paper on LLM-supported life cycle assessment was [published by Springer](https://doi.org/10.1007/978-981-95-8872-5_31) in *Lecture Notes in Civil Engineering* (vol. 848).
+- The book [**"Integrated Building Intelligence"**](https://doi.org/10.1007/978-3-031-68865-2) was translated into **Romanian** (Matrix Rom, 2026).
+- Designed and delivered the Oxford Brookes CPD programme **"From BIM to Digital Twins"** for built-environment professionals, including a **Contemporary BIM Applications** webinar (February 2026).
+- Supervising **MSc dissertations** at **Oxford Brookes University** on LiDAR-based progress monitoring, AI in procurement and risk management, BIM and the circular economy, and digital-twin adoption.
+
 ### **2025**
+- Joined [**Oxford Brookes University**](https://www.brookes.ac.uk/profiles/staff/hamidreza-alavi) as **Senior Lecturer in Construction Informatics** (School of the Built Environment), while continuing as an **Academic Affiliate** at the **University of Cambridge**.
+- Appointed **Expert Reviewer** for the UK **Research Excellence Framework (REF 2029)**.
+- Served on the **PhD examination committee** for a doctoral thesis on digitalisation for circular-economy processes at **UPC** (September 2025).
 - Delivered teaching in the 3D9 **Construction Management** module at the [**University of Cambridge**](https://www.cam.ac.uk/) this semester, including designing and leading all lab sessions.
 - Lectured on **Digital Construction** in the 4D4 module at the [**University of Cambridge**](https://www.cam.ac.uk/) (with Prof. Ioannis Brilakis).
 - [Presented our AEGIR work at the **University of Cambridge**](https://drf.eng.cam.ac.uk/events/drf-lunchtime-clinic-dr-mudan-wang-and-dr-hamidreza-alavi) (DRF Lunch Clinic seminar), sharing research on AI/ML pipelines and geometric digital twin model generation. [[See AEGIR Project](https://aegirproject.eu/)]

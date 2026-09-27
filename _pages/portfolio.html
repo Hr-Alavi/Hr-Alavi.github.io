@@ -4,23 +4,41 @@ title: "Research Projects"
 permalink: /portfolio/
 author_profile: true
 eyebrow: "Funded research"
-intro: "Projects funded by Horizon Europe, H2020 and national and regional agencies, on digital twins, renovation, circular design and intelligent infrastructure maintenance."
+intro: "Projects funded by Horizon Europe, H2020 and national and regional agencies, on digital twins, renovation, circular design, healthcare and intelligent infrastructure maintenance."
+
+# Smaller commissioned projects led as Principal Investigator (shown as a list)
+commissioned:
+  - title: "BIM visualisation for a building condition risk assessment model"
+    period: "Dec 2021 – Aug 2022"
+  - title: "Mobile application for the inspection of facility maintenance management"
+    period: "Nov 2020 – May 2021"
+  - title: "BIM integration and visualisation for occupant feedback"
+    period: "Nov 2019 – Feb 2020"
+  - title: "BIM data requirements for asset and facility management"
+    period: "Dec 2018 – Apr 2019"
+commissioned_sponsor: "Terrassa City Council, Barcelona, Spain"
 ---
 
 {% include base_path %}
 {% comment %}
   Cards are built from the files in _portfolio/, newest `start` first.
-  Each project needs: short_title, subtitle, sponsor, period, start, end, logo, website.
+  Each project needs: short_title, subtitle, role, sponsor, period, start, end,
+  website and either logo (image inside /images/) or icon (Font Awesome name).
 {% endcomment %}
 
 {% assign projects = site.portfolio | sort: "start" | reverse %}
 {% assign now_ym = site.time | date: "%Y-%m" %}
 {% assign ongoing_count = 0 %}
-{% for p in projects %}{% if p.end >= now_ym %}{% assign ongoing_count = ongoing_count | plus: 1 %}{% endif %}{% endfor %}
+{% assign pi_count = page.commissioned.size %}
+{% for p in projects %}
+  {% if p.end >= now_ym %}{% assign ongoing_count = ongoing_count | plus: 1 %}{% endif %}
+  {% if p.role contains "Principal" %}{% assign pi_count = pi_count | plus: 1 %}{% endif %}
+{% endfor %}
 
 <ul class="summary-row">
-  <li class="chip"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i><b>{{ projects.size }}</b> projects</li>
+  <li class="chip"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i><b>{{ projects.size }}</b> funded projects</li>
   <li class="chip"><i class="fa-solid fa-circle-play" aria-hidden="true"></i><b>{{ ongoing_count }}</b> ongoing</li>
+  <li class="chip"><i class="fa-solid fa-user-gear" aria-hidden="true"></i><b>{{ pi_count }}</b> as Principal Investigator</li>
   <li class="chip"><i class="fa-solid fa-earth-europe" aria-hidden="true"></i>Horizon Europe, H2020, national &amp; regional funders</li>
 </ul>
 
@@ -29,3 +47,20 @@ intro: "Projects funded by Horizon Europe, H2020 and national and regional agenc
     {% include project-card.html project=p delay=forloop.index0 %}
   {% endfor %}
 </div>
+
+{% if page.commissioned %}
+<section class="inst commissioned" id="commissioned" aria-labelledby="commissioned-title">
+  <header class="inst__head">
+    <span class="inst__icon" aria-hidden="true"><i class="fa-solid fa-file-signature"></i></span>
+    <div>
+      <h2 class="inst__name" id="commissioned-title">Commissioned research as Principal Investigator</h2>
+      <p class="inst__meta">{{ page.commissioned_sponsor }} · {{ page.commissioned.size }} projects</p>
+    </div>
+  </header>
+  <ol class="commissioned__list">
+    {% for c in page.commissioned %}
+      <li class="reveal"><span class="commissioned__title">{{ c.title }}</span><span class="commissioned__period">{{ c.period }}</span></li>
+    {% endfor %}
+  </ol>
+</section>
+{% endif %}

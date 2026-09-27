@@ -26,7 +26,7 @@ intro: "Invited talks, guest lectures and industry seminars on BIM, digital twin
 {% assign n_media = 0 %}
 {% for post in talks %}
   {% include talk-kind.html talk=post %}
-  {% if talk_kind == "press" or talk_kind == "tv" or talk_kind == "award" %}
+  {% if talk_kind == "press" or talk_kind == "tv" or talk_kind == "award" or talk_kind == "video" %}
     {% assign n_media = n_media | plus: 1 %}
   {% else %}
     {% assign n_speaking = n_speaking | plus: 1 %}
@@ -35,7 +35,7 @@ intro: "Invited talks, guest lectures and industry seminars on BIM, digital twin
 
 <ul class="summary-row">
   <li class="chip"><i class="fa-solid fa-microphone-lines" aria-hidden="true"></i><b>{{ n_speaking }}</b> talks, lectures &amp; seminars</li>
-  <li class="chip"><i class="fa-solid fa-newspaper" aria-hidden="true"></i><b>{{ n_media }}</b> awards &amp; media</li>
+  <li class="chip"><i class="fa-solid fa-newspaper" aria-hidden="true"></i><b>{{ n_media }}</b> awards, press &amp; videos</li>
 </ul>
 
 {% assign by_year = talks | group_by_exp: "t", "t.date | date: '%Y'" %}
@@ -52,7 +52,7 @@ intro: "Invited talks, guest lectures and industry seminars on BIM, digital twin
           <div class="tl__card">
             <div class="tl__meta">
               <span class="badge">{{ talk_label }}</span>
-              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %b %Y" }}</time>
+              <time datetime="{{ post.date | date_to_xmlschema }}">{{ talk_when }}</time>
               {% if post.location %}<span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> {{ post.location }}</span>{% endif %}
             </div>
             <h3 class="tl__title"><a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a></h3>

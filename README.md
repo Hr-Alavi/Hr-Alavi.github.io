@@ -7,15 +7,16 @@ Live at <https://hr-alavi.github.io>. Built with Jekyll on GitHub Pages, startin
 | To change | Edit |
 |---|---|
 | Biography and yearly highlights on the homepage | `_pages/about.md`, the Markdown below the front matter. Keep the `<!-- highlights -->` line between the biography and the highlights. |
-| Homepage hero text, research interests, credentials, research-theme cards, photo gallery | The front matter at the top of `_pages/about.md` (commented). |
-| Publications | One file per item in `_publications/`. `category` is `books`, `manuscripts` or `conferences`; optional `status: "Accepted"` or `"Under Review"`; books can set `cover:` (an image inside `/images/`). |
-| Research projects | `_portfolio/`: `short_title`, `subtitle`, `sponsor`, `period`, `start` / `end` (`YYYY-MM`, drives the Ongoing/Completed badge), `logo`, `website`. |
-| Talks and media | `_talks/`. Optional `kind:` (`talk`, `lecture`, `seminar`, `press`, `tv`, `award`) overrides the automatic icon. |
-| Teaching | `_teaching/`; institutions are listed in the front matter of `_pages/teaching.html`. |
-| Name, photo, profile links, email | `_config.yml`, under `author:`. |
+| Homepage hero text, research interests, credentials, research-theme cards, photos | The front matter at the top of `_pages/about.md` (commented). The same `moments` photo list also feeds the `/gallery/` page. |
+| Publications | One file per item in `_publications/`. `category` is `books`, `manuscripts`, `conferences` or `preprints`; optional `status: "Accepted"` or `"Under Review"`; `oaurl:` adds an "Open access" link (e.g. a repository copy); `note:` adds one line; books can set `cover:` (an image inside `/images/`) and `chapters:` (title, pages, DOI). BibTeX files live in `files/bibtex/`. |
+| Research projects | `_portfolio/`: `short_title`, `subtitle`, `role`, `sponsor`, `period`, `start` / `end` (`YYYY-MM`, drives the Ongoing/Completed badge), `website`, and either `logo` (image) or `icon` (Font Awesome name). `home: false` keeps a project off the homepage. Smaller commissioned projects are listed in the front matter of `_pages/portfolio.html`. |
+| Talks and media | `_talks/`. Optional `kind:` (`talk`, `lecture`, `seminar`, `press`, `tv`, `award`, `video`) overrides the automatic icon. Use the 1st of the month when only the month is known; it is then shown as month and year. |
+| Teaching and supervision | `_teaching/` (one file per module); institutions, supervision and prospective-student topics are in the front matter of `_pages/teaching.html`. |
+| Name, photo, profile links, email | `_config.yml`, under `author:` (`uri` / `uri_label` for the main staff profile, `extra_links` for further profiles). |
+| CV page | `_pages/cv.md`; the publication, talk and teaching lists at the end are generated automatically. |
 | Colours and fonts | The tokens at the top of `assets/css/site.css`. |
 
-The homepage counts publications, books, projects, talks and modules automatically (papers under review are listed but not counted). Web-optimised copies of the photos live in `images/web/`; resize large photos (to roughly 300 KB or less) before adding them.
+The homepage counts publications, books, projects, talks and modules automatically (papers under review and preprints are listed but not counted). Web-optimised copies of the photos live in `images/web/`; resize large photos (to roughly 300 KB or less) before adding them.
 
 ---
 
