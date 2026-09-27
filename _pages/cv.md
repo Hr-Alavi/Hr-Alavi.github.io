@@ -15,12 +15,11 @@ Profiles: [Oxford Brookes University](https://www.brookes.ac.uk/profiles/staff/h
 
 Education
 ======
-* **PhD in Construction Engineering**, Universitat Politècnica de Catalunya (UPC), Spain, 2017 – 2022  
-  Thesis: [*BIM for facility managers*](http://dx.doi.org/10.5821/dissertation-2117-375223) (Excellent)
-* **Certificate in Teaching & Learning in Higher Education**, University of Cambridge, UK, 2023 – 2024
-* **MSc in Construction Engineering and Management**, Tarbiat Moalem University, Iran, 2014 – 2016
-* **MEng in Project Engineering**, Tose’eh Open Higher Education Institute, Iran, 2015 – 2016
-* **BSc in Civil Engineering**, University of South Tehran (IAU), Iran, 2011 – 2014
+* **PhD in Construction Engineering**
+* **Certificate in Teaching & Learning in Higher Education**
+* **MSc in Construction Engineering and Management**
+* **MEng in Project Engineering**
+* **BSc in Civil Engineering**
 
 Academic appointments
 ======
