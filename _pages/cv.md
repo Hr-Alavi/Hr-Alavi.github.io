@@ -3,6 +3,8 @@ layout: archive
 title: "CV"
 permalink: /cv/
 author_profile: true
+eyebrow: "Curriculum Vitae"
+intro: "Education, experience and skills, followed by full lists of publications, talks and teaching (generated from the rest of the site)."
 redirect_from:
   - /resume
 ---
@@ -72,22 +74,25 @@ Skills
 
 Publications
 ======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-    
+
+<ol class="cv-list">
+{% assign cv_pubs = site.publications | sort: "date" | reverse %}{% for post in cv_pubs %}<li>{{ post.citation }} <a href="{{ base_path }}{{ post.url }}">Details</a></li>
+{% endfor %}</ol>
+
 Talks
 ======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
+
+<ol class="cv-list">
+{% assign cv_talks = site.talks | sort: "date" | reverse %}{% for post in cv_talks %}<li><a href="{{ base_path }}{{ post.url }}"><strong>{{ post.title }}</strong></a>, {{ post.venue }}{% if post.location %}, {{ post.location }}{% endif %} ({{ post.date | date: "%b %Y" }}).</li>
+{% endfor %}</ol>
+
 Teaching
 ======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
+
+<ul class="cv-list">
+{% assign cv_teaching = site.teaching | where_exp: "t", "t.venue" %}{% for post in cv_teaching reversed %}<li><a href="{{ base_path }}{{ post.url }}"><strong>{{ post.title }}</strong></a>, {{ post.type }}, {{ post.venue }}.</li>
+{% endfor %}</ul>
+
 Service and leadership
 ======
 * Editorial Board Member, *Smart and Sustainable Built Environment* (Q1 journal)

@@ -1,3 +1,24 @@
+# Hamidreza Alavi: academic website
+
+Live at <https://hr-alavi.github.io>. Built with Jekyll on GitHub Pages, starting from the AcademicPages template (documented further down).
+
+## Editing the site
+
+| To change | Edit |
+|---|---|
+| Biography and yearly highlights on the homepage | `_pages/about.md`, the Markdown below the front matter. Keep the `<!-- highlights -->` line between the biography and the highlights. |
+| Homepage hero text, research interests, credentials, research-theme cards, photo gallery | The front matter at the top of `_pages/about.md` (commented). |
+| Publications | One file per item in `_publications/`. `category` is `books`, `manuscripts` or `conferences`; optional `status: "Accepted"` or `"Under Review"`; books can set `cover:` (an image inside `/images/`). |
+| Research projects | `_portfolio/`: `short_title`, `subtitle`, `sponsor`, `period`, `start` / `end` (`YYYY-MM`, drives the Ongoing/Completed badge), `logo`, `website`. |
+| Talks and media | `_talks/`. Optional `kind:` (`talk`, `lecture`, `seminar`, `press`, `tv`, `award`) overrides the automatic icon. |
+| Teaching | `_teaching/`; institutions are listed in the front matter of `_pages/teaching.html`. |
+| Name, photo, profile links, email | `_config.yml`, under `author:`. |
+| Colours and fonts | The tokens at the top of `assets/css/site.css`. |
+
+The homepage counts publications, books, projects, talks and modules automatically (papers under review are listed but not counted). Web-optimised copies of the photos live in `images/web/`; resize large photos (to roughly 300 KB or less) before adding them.
+
+---
+
 # Academic Pages
 **Academic Pages is a GitHub Pages template for personal and professional portfolio-oriented websites.**
 

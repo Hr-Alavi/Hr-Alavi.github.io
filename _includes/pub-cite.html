@@ -1,0 +1,23 @@
+{% include base_path %}
+{% comment %} "Cite this work" box shown on each publication page. Pass pub=<document>. {% endcomment %}
+{% assign p = include.pub %}
+{% assign cover = p.cover | default: p.header.teaser %}
+{% assign cite_plain = p.citation | replace: "&quot;", '"' | replace: "&amp;", "&" | strip_html | strip %}
+<div class="cite-box{% if cover %} cite-box--cover{% endif %}">
+  {% if cover %}
+    <div class="cite-box__cover"><img src="{{ base_path }}/images/{{ cover }}" alt="Cover of {{ p.title | escape }}" width="120" height="181"></div>
+  {% endif %}
+  <div class="pub__body">
+    <p class="eyebrow">Cite this work</p>
+    {% if p.citation %}<p class="cite-box__text">{{ p.citation }}</p>{% endif %}
+    <div class="pub__actions">
+      {% if p.paperurl %}<a class="pill" href="{{ p.paperurl }}"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>{% if p.paperurl contains 'doi' %}View via DOI{% else %}View paper{% endif %}</a>{% endif %}
+      {% if p.slidesurl %}<a class="pill" href="{{ p.slidesurl }}"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i>Slides</a>{% endif %}
+      {% if p.bibtexurl %}
+        <button class="pill" type="button" data-bibtex="{{ base_path }}{{ p.bibtexurl }}" aria-expanded="false"><i class="fa-solid fa-quote-left" aria-hidden="true"></i>Show BibTeX</button>
+        <a class="pill" href="{{ base_path }}{{ p.bibtexurl }}" download><i class="fa-solid fa-download" aria-hidden="true"></i>.bib file</a>
+      {% endif %}
+      {% if p.citation %}<button class="pill" type="button" data-copy="{{ cite_plain | escape }}" data-copy-msg="Citation copied"><i class="fa-regular fa-copy" aria-hidden="true"></i>Copy citation</button>{% endif %}
+    </div>
+  </div>
+</div>

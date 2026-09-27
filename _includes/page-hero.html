@@ -1,0 +1,20 @@
+{% include base_path %}
+{% comment %}
+  Dark header band used at the top of inner pages.
+  Parameters: eyebrow, title, intro, meta (HTML), crumb_url, crumb_label,
+  with_side (true when a sidebar sits below), flush (less bottom padding).
+{% endcomment %}
+{% assign hero_title = include.title | default: page.title %}
+{% assign hero_title_len = hero_title | strip_html | size %}
+<header class="page-hero{% if include.with_side %} page-hero--with-side{% endif %}{% if include.flush %} page-hero--flush{% endif %}">
+  <div class="blueprint" aria-hidden="true"></div>
+  <div class="container page-hero__inner">
+    {% if include.crumb_url %}
+      <a class="page-hero__crumb" href="{{ base_path }}{{ include.crumb_url }}"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i>{{ include.crumb_label }}</a>
+    {% endif %}
+    {% if include.eyebrow %}<p class="eyebrow">{{ include.eyebrow }}</p>{% endif %}
+    <h1 class="page-hero__title{% if hero_title_len > 60 %} page-hero__title--long{% endif %}" itemprop="headline">{{ hero_title | markdownify | remove: "<p>" | remove: "</p>" | strip }}</h1>
+    {% if include.intro %}<p class="page-hero__intro">{{ include.intro }}</p>{% endif %}
+    {% if include.meta and include.meta != "" %}<ul class="page-hero__meta">{{ include.meta }}</ul>{% endif %}
+  </div>
+</header>

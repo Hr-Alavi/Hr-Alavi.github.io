@@ -3,34 +3,91 @@ layout: archive
 title: "Publications"
 permalink: /publications/
 author_profile: true
+eyebrow: "Research output"
+intro: "Books, journal articles and conference papers on AI, digital twins and BIM for the built environment. Search, filter by type, or grab a citation."
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
-
 {% include base_path %}
+{% comment %}
+  Everything here is generated from the files in _publications/.
+  `category` must be one of the keys in publication_category (_config.yml).
+  Optional front matter: status ("Accepted", "Under Review"), cover (book image).
+{% endcomment %}
 
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
+{% assign pubs = site.publications | sort: "date" | reverse %}
+{% assign by_year = pubs | group_by_exp: "p", "p.date | date: '%Y'" %}
+
+{% comment %} ---- Output per year (stacked by type) ---- {% endcomment %}
+{% assign max_count = 1 %}
+{% for y in by_year %}{% if y.size > max_count %}{% assign max_count = y.size %}{% endif %}{% endfor %}
+{% assign first_year = by_year.last.name | plus: 0 %}
+{% assign last_year = by_year.first.name | plus: 0 %}
+
+<section class="pub-overview" aria-labelledby="pub-chart-title">
+  <div class="pub-overview__head">
+    <h2 class="pub-overview__title" id="pub-chart-title">Output per year<span>{{ first_year }}–{{ last_year }}</span></h2>
+    <ul class="pub-legend">
+      {% for category in site.publication_category %}
+        <li><i class="seg--{{ category[0] }}" aria-hidden="true"></i>{{ category[1].title }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="pub-chart">
+    {% for yr in (first_year..last_year) %}
+      {% capture yr_s %}{{ yr }}{% endcapture %}
+      {% assign grp = by_year | where: "name", yr_s | first %}
+      {% if grp %}
+        <a class="pub-chart__col" href="#y{{ yr_s }}" title="{{ yr_s }}: {{ grp.size }} publication{% if grp.size != 1 %}s{% endif %}">
+          <span class="pub-chart__n">{{ grp.size }}</span>
+          <span class="pub-chart__track">
+            <span class="pub-chart__bar" style="--h: {{ grp.size | times: 100 | divided_by: max_count }}%">
+              {% for category in site.publication_category %}
+                {% assign n = grp.items | where: "category", category[0] | size %}
+                {% if n > 0 %}<span class="seg--{{ category[0] }}" style="flex: {{ n }} 1 0"></span>{% endif %}
+              {% endfor %}
+            </span>
+          </span>
+          <span class="pub-chart__y">{{ yr_s | slice: 2, 2 | prepend: "’" }}</span>
+        </a>
+      {% else %}
+        <span class="pub-chart__col" aria-hidden="true">
+          <span class="pub-chart__n">&nbsp;</span>
+          <span class="pub-chart__track"></span>
+          <span class="pub-chart__y">{{ yr_s | slice: 2, 2 | prepend: "’" }}</span>
+        </span>
       {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
     {% endfor %}
+  </div>
+</section>
+
+<div data-pubs>
+  <div class="pub-toolbar" role="search">
+    <label class="pub-search">
+      <span class="visually-hidden">Search publications</span>
+      <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+      <input type="search" id="pub-search" placeholder="Search titles, venues or co-authors…" autocomplete="off">
+    </label>
+    <div class="pub-filters" role="group" aria-label="Filter by type">
+      <button class="chip-btn is-active" type="button" data-filter="all" aria-pressed="true">All <span>{{ pubs.size }}</span></button>
+      {% for category in site.publication_category %}
+        {% assign n = pubs | where: "category", category[0] | size %}
+        {% if n > 0 %}<button class="chip-btn" type="button" data-filter="{{ category[0] }}" aria-pressed="false">{{ category[1].title }} <span>{{ n }}</span></button>{% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <p class="pub-count" aria-live="polite">Showing <b data-pub-shown>{{ pubs.size }}</b> of {{ pubs.size }} publications{% if site.author.googlescholar %} · also on <a href="{{ site.author.googlescholar }}">Google Scholar</a>{% endif %}</p>
+
+  {% for y in by_year %}
+    <section class="pub-year" id="y{{ y.name }}" aria-labelledby="y{{ y.name }}-label">
+      <h2 class="pub-year__label" id="y{{ y.name }}-label">{{ y.name }}<small>{{ y.size }} item{% if y.size != 1 %}s{% endif %}</small></h2>
+      <ol class="pub-list">
+        {% for post in y.items %}
+          {% include pub-item.html pub=post %}
+        {% endfor %}
+      </ol>
+    </section>
   {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endif %}
 
-
-
+  <p class="pub-empty" hidden><i class="fa-regular fa-folder-open" aria-hidden="true"></i>No publications match your search. <button class="pill" type="button" data-pub-reset>Clear filters</button></p>
+</div>

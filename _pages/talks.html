@@ -3,23 +3,65 @@ layout: archive
 title: "Invited Talks & Media"
 permalink: /talks/
 author_profile: true
+eyebrow: "Talks, lectures & media"
+intro: "Invited talks, guest lectures and industry seminars on BIM, digital twins and AI, plus awards and press coverage."
 ---
 
 {% include base_path %}
+{% comment %}
+  Built from _talks/. Each entry's icon/label is guessed from its venue and
+  text; set `kind:` (talk, lecture, seminar, press, tv, award) to override.
+{% endcomment %}
 
-<img
-  src="{{ base_path }}/images/1737369787069.png"
-  alt="Invited talks and media"
-  style="width:100%; max-width:900px; display:block; margin:0.5rem auto 1.25rem auto; border-radius:12px;"
-/>
-
+<figure class="page-banner">
+  <img src="{{ base_path }}/images/web/talks-banner.webp" alt="Speaking to a full auditorium at a research event" width="1600" height="700">
+</figure>
 
 {% if site.talkmap_link == true %}
-
-<p style="text-decoration:underline;"><a href="/talkmap.html">See a map of all the places I've given a talk!</a></p>
-
+<p><a href="{{ base_path }}/talkmap.html">See a map of all the places I've given a talk!</a></p>
 {% endif %}
 
-{% for post in site.talks reversed %}
-  {% include archive-single-talk.html %}
+{% assign talks = site.talks | sort: "date" | reverse %}
+{% assign n_speaking = 0 %}
+{% assign n_media = 0 %}
+{% for post in talks %}
+  {% include talk-kind.html talk=post %}
+  {% if talk_kind == "press" or talk_kind == "tv" or talk_kind == "award" %}
+    {% assign n_media = n_media | plus: 1 %}
+  {% else %}
+    {% assign n_speaking = n_speaking | plus: 1 %}
+  {% endif %}
+{% endfor %}
+
+<ul class="summary-row">
+  <li class="chip"><i class="fa-solid fa-microphone-lines" aria-hidden="true"></i><b>{{ n_speaking }}</b> talks, lectures &amp; seminars</li>
+  <li class="chip"><i class="fa-solid fa-newspaper" aria-hidden="true"></i><b>{{ n_media }}</b> awards &amp; media</li>
+</ul>
+
+{% assign by_year = talks | group_by_exp: "t", "t.date | date: '%Y'" %}
+{% for y in by_year %}
+  <section class="tl-year" aria-labelledby="talks-{{ y.name }}">
+    <h2 class="tl-year__label" id="talks-{{ y.name }}">{{ y.name }}</h2>
+    <ol class="tl">
+      {% for post in y.items %}
+        {% include talk-kind.html talk=post %}
+        {% assign talk_desc = post.excerpt | strip_html | remove: "More information" | strip %}
+        {% assign talk_link = post.content | split: 'href="' | slice: 1 | first | split: '"' | first %}
+        <li class="tl__item reveal" data-kind="{{ talk_kind }}">
+          <span class="tl__icon" aria-hidden="true"><i class="fa-solid {{ talk_icon }}"></i></span>
+          <div class="tl__card">
+            <div class="tl__meta">
+              <span class="badge">{{ talk_label }}</span>
+              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %b %Y" }}</time>
+              {% if post.location %}<span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> {{ post.location }}</span>{% endif %}
+            </div>
+            <h3 class="tl__title"><a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a></h3>
+            {% if post.venue %}<p class="tl__venue">{{ post.venue }}</p>{% endif %}
+            {% if talk_desc != "" %}<p class="tl__desc">{{ talk_desc }}</p>{% endif %}
+            {% if talk_link contains "://" %}<a class="tl__source" href="{{ talk_link }}">More information <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>{% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  </section>
 {% endfor %}

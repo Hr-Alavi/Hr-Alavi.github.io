@@ -9,6 +9,6 @@ venue: "Routledge (Taylor & Francis)"
 paperurl: "https://doi.org/10.1201/9781003565055"
 bibtexurl: "/files/bibtex/kookalani2025structural.bib"
 citation: 'Kookalani, S.; <b><b>Alavi, H.</b></b>; Rahimian, F. (2025). &quot;Structural Design and Optimization of Lifting Self-forming GFRP Elastic Gridshells based on Machine Learning.&quot; <i>Routledge (Taylor & Francis)</i>.'
+cover: web/book-gfrp-gridshells.webp
 ---
-![Book2](/images/1757350675270book2.png)
 

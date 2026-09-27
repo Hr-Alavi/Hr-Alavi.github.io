@@ -1,0 +1,66 @@
+---
+layout: default
+---
+
+{% include base_path %}
+{% comment %}
+  Research project page. Front matter used: short_title, subtitle, sponsor,
+  period, start/end (YYYY-MM, drives the Ongoing/Completed badge), logo
+  (path inside /images/) and website.
+{% endcomment %}
+{% assign now_ym = site.time | date: "%Y-%m" %}
+
+<header class="page-hero page-hero--flush">
+  <div class="blueprint" aria-hidden="true"></div>
+  <div class="container project-hero">
+    <div>
+      <a class="page-hero__crumb" href="{{ base_path }}/portfolio/"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i>Research projects</a>
+      <p class="eyebrow">Research project</p>
+      <h1 class="page-hero__title">{{ page.short_title | default: page.title }}</h1>
+      {% if page.subtitle %}<p class="page-hero__intro">{{ page.subtitle }}</p>{% endif %}
+
+      <dl class="facts">
+        {% if page.sponsor %}<div><dt>Funding</dt><dd>{{ page.sponsor }}</dd></div>{% endif %}
+        {% if page.period %}<div><dt>Period</dt><dd>{{ page.period }}</dd></div>{% endif %}
+        {% if page.end %}
+          {% if page.end >= now_ym %}{% assign ongoing = true %}{% else %}{% assign ongoing = false %}{% endif %}
+          <div><dt>Status</dt><dd><span class="status {% if ongoing %}status--ongoing{% else %}status--done{% endif %}" data-end="{{ page.end }}">{% if ongoing %}Ongoing{% else %}Completed{% endif %}</span></dd></div>
+        {% endif %}
+      </dl>
+
+      {% if page.website %}
+        <a class="button button--primary" href="{{ page.website }}">Project website <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+      {% endif %}
+    </div>
+    {% if page.logo %}
+      <div class="project-hero__logo"><img src="{{ base_path }}/images/{{ page.logo }}" alt="{{ page.short_title | default: page.title }} project graphic" width="500" height="300"></div>
+    {% endif %}
+  </div>
+</header>
+
+<div class="project-body">
+  <article class="prose" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="{{ page.title | strip_html | escape_once }}">
+    {{ content }}
+  </article>
+
+  {% if page.share %}{% include social-share.html %}{% endif %}
+
+  {% assign projects = site.portfolio | sort: "start" | reverse %}
+  {% for p in projects %}
+    {% if p.url == page.url %}
+      {% assign prev_index = forloop.index0 | minus: 1 %}
+      {% assign next_index = forloop.index0 | plus: 1 %}
+    {% endif %}
+  {% endfor %}
+  <nav class="project-pager" aria-label="More projects">
+    {% if prev_index >= 0 %}
+      {% assign prev = projects[prev_index] %}
+      <a href="{{ base_path }}{{ prev.url }}"><small><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Newer project</small><strong>{{ prev.short_title | default: prev.title }}</strong></a>
+    {% endif %}
+    {% if next_index < projects.size %}
+      {% assign next = projects[next_index] %}
+      <a class="project-pager__next" href="{{ base_path }}{{ next.url }}"><small>Earlier project <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></small><strong>{{ next.short_title | default: next.title }}</strong></a>
+    {% endif %}
+  </nav>
+</div>

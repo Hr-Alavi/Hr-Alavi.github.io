@@ -12,13 +12,17 @@ layout: default
   {% endunless %}
 {% endif %}
 
-<div id="main" role="main">
-  {% include sidebar.html %}
+{% assign has_side = false %}
+{% if page.author_profile or layout.author_profile or page.sidebar %}{% assign has_side = true %}{% endif %}
 
-  <div class="archive">
-    {% unless page.header.overlay_color or page.header.overlay_image %}
-      <h1 class="page__title">{{ page.title }}</h1>
-    {% endunless %}
+{% unless page.header.overlay_color or page.header.overlay_image %}
+  {% include page-hero.html eyebrow=page.eyebrow intro=page.intro with_side=has_side %}
+{% endunless %}
+
+<div class="shell{% unless has_side %} shell--full{% endunless %}">
+  {% if has_side %}<aside class="shell__side" aria-label="About the author">{% include sidebar.html %}</aside>{% endif %}
+  {% comment %} Markdown pages (CV, student resources...) get article typography {% endcomment %}
+  <div class="shell__main{% if page.path contains '.md' %} prose{% endif %}">
     {{ content }}
   </div>
 </div>

@@ -3,12 +3,11 @@ layout: default
 author_profile: false
 ---
 
-<div id="main" role="main">
-  {% include sidebar.html %}
+{% include base_path %}
+{% include page-hero.html %}
 
-  <div class="archive">
-    <h1 class="page__title">{{ page.title }}</h1>
-    {% include base_path %}
+<div class="shell shell--full">
+  <div class="shell__main">
     {% for post in page.posts %}
       {% include archive-single.html %}
     {% endfor %}

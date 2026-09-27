@@ -17,21 +17,17 @@ layout: compress
   </head>
 
   <body class="cv-layout">
+    <a class="skip-link" href="#main">Skip to content</a>
     {% include browser-upgrade.html %}
     {% include masthead.html %}
 
-    <div id="main" role="main">
+    <main id="main">
       <div class="container">
         {{ content }}
       </div>
-    </div>
+    </main>
 
-    <div class="page__footer">
-      <footer>
-        {% include footer/custom.html %}
-        {% include footer.html %}
-      </footer>
-    </div>
+    {% include footer.html %}
 
     {% include scripts.html %}
 

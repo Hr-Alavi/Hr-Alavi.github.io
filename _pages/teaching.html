@@ -3,41 +3,82 @@ layout: archive
 title: "Teaching"
 permalink: /teaching/
 author_profile: true
+eyebrow: "Teaching & curriculum"
+intro: "Undergraduate, postgraduate and professional teaching in BIM, digital construction and construction management, from module leadership to coursework and lab design."
+
+# Each group collects the _teaching entries whose `venue` contains `match`.
+institutions:
+  - name: "University of Cambridge"
+    match: "University of Cambridge"
+    location: "Cambridge, UK"
+    icon: "fa-building-columns"
+  - name: "Oxford Brookes University"
+    match: "Oxford Brookes University"
+    location: "Oxford, UK"
+    icon: "fa-building-columns"
+  - name: "Universitat Politècnica de Catalunya (UPC)"
+    match: "Universitat Politècnica de Catalunya"
+    location: "Barcelona, Spain"
+    icon: "fa-building-columns"
+  - name: "EADIC – Engineering, Training & Development Solutions"
+    match: "EADIC"
+    location: "Online / Spain"
+    icon: "fa-laptop-code"
 ---
 
 {% include base_path %}
-<blockquote>
-  <p>
-    This page provides detailed teaching information.<br>
-    A concise, chronologically organised summary is available at
-    <strong><a href="/teaching-grouped/">Teaching (Grouped)</a></strong>.
-  </p>
-</blockquote>
 
-<h2>University of Cambridge</h2>
-{% for post in site.teaching reversed %}
-  {% if post.venue contains "University of Cambridge" %}
-    {% include archive-single.html %}
-  {% endif %}
+{% assign modules = site.teaching | where_exp: "t", "t.venue" %}
+{% assign n_ug = 0 %}{% assign n_pg = 0 %}
+{% for t in modules %}
+  {% if t.type contains "Undergraduate" %}{% assign n_ug = n_ug | plus: 1 %}{% endif %}
+  {% if t.type contains "ostgraduate" %}{% assign n_pg = n_pg | plus: 1 %}{% endif %}
 {% endfor %}
 
-<h2>Oxford Brookes University</h2>
-{% for post in site.teaching reversed %}
-  {% if post.venue contains "Oxford Brookes University" %}
-    {% include archive-single.html %}
-  {% endif %}
-{% endfor %}
+<ul class="summary-row">
+  <li class="chip"><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i><b>{{ modules.size }}</b> modules &amp; courses</li>
+  <li class="chip"><i class="fa-solid fa-building-columns" aria-hidden="true"></i><b>{{ page.institutions.size }}</b> institutions</li>
+  <li class="chip"><i class="fa-solid fa-user-graduate" aria-hidden="true"></i><b>{{ n_ug }}</b> undergraduate · <b>{{ n_pg }}</b> postgraduate &amp; professional</li>
+</ul>
 
-<h2>Universitat Politècnica de Catalunya (UPC)</h2>
-{% for post in site.teaching reversed %}
-  {% if post.venue contains "Universitat Politècnica de Catalunya" %}
-    {% include archive-single.html %}
-  {% endif %}
-{% endfor %}
+<div class="note">
+  <i class="fa-solid fa-list-ul" aria-hidden="true"></i>
+  <p>Looking for a quick overview? See the concise <a href="{{ base_path }}/teaching-grouped/">grouped teaching list</a>.</p>
+</div>
 
-<h2>EADIC – Engineering, Training & Development Solutions</h2>
-{% for post in site.teaching reversed %}
-  {% if post.venue contains "EADIC" %}
-    {% include archive-single.html %}
+{% for inst in page.institutions %}
+  {% assign items = modules | where_exp: "t", "t.venue contains inst.match" %}
+  {% if items.size > 0 %}
+  <section class="inst" id="{{ inst.name | slugify }}" aria-labelledby="{{ inst.name | slugify }}-title">
+    <header class="inst__head">
+      <span class="inst__icon" aria-hidden="true"><i class="fa-solid {{ inst.icon | default: 'fa-building-columns' }}"></i></span>
+      <div>
+        <h2 class="inst__name" id="{{ inst.name | slugify }}-title">{{ inst.name }}</h2>
+        <p class="inst__meta">{{ inst.location }} · {{ items.size }} module{% if items.size != 1 %}s{% endif %}</p>
+      </div>
+    </header>
+    <div class="module-grid">
+      {% for post in items reversed %}
+        {% comment %} First paragraph that is not the "Institution:" line = description; "Role:" splits off the role {% endcomment %}
+        {% assign paras = post.content | split: "</p>" %}
+        {% assign desc = "" %}
+        {% for para in paras %}
+          {% unless para contains "Institution:" %}
+            {% assign candidate = para | strip_html | strip %}
+            {% if candidate != "" %}{% assign desc = candidate %}{% break %}{% endif %}
+          {% endunless %}
+        {% endfor %}
+        {% assign desc_parts = desc | split: "Role:" %}
+        {% assign desc_text = desc_parts[0] | strip %}
+        {% assign role_text = desc_parts[1] | strip %}
+        <article class="module reveal" style="--d: {{ forloop.index0 | modulo: 2 }}">
+          <div><span class="badge">{{ post.type | default: "Module" }}</span></div>
+          <h3 class="module__title"><a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a></h3>
+          {% if desc_text != "" %}<p class="module__desc">{{ desc_text }}</p>{% endif %}
+          {% if role_text and role_text != "" %}<p class="module__role"><i class="fa-solid fa-user-tie" aria-hidden="true"></i><span>{{ role_text }}</span></p>{% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </section>
   {% endif %}
 {% endfor %}

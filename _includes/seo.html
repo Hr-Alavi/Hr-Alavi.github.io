@@ -86,7 +86,7 @@
   <link rel="next" href="{{ paginator.next_page_path | prepend: seo_url }}">
 {% endif %}
 
-{% if site.social %}
+{% if site.social.links %}
   <script type="application/ld+json">
     {
       "@context" : "http://schema.org",
@@ -119,8 +119,8 @@
 {% if page.date %}
   <meta property="og:type" content="article">
 {% endif %}
-{% if page.excerpt %}
-  <meta property="og:description" name="description" content="{{ seo_description }}">
+{% if page.excerpt or page.description %}
+  <meta property="og:description" content="{{ seo_description }}">
 {% elsif site.og_description %}
   <meta property="og:description" name="description" content="{{ site.og_description }}">
 {% endif %}
@@ -128,13 +128,20 @@
   <meta property="og:url" content="{{ page.url | prepend: seo_url | replace: "/index.html", "/" }}">
 {% endif %}
 
-{% if site.og_image %}
+{% if page.url == "/" %}
+  {% comment %} Structured data describing the site owner (helps search engines link the profiles) {% endcomment %}
+  {% assign a = site.author %}
+  {% capture same_as_list %}{% if a.googlescholar %}{{ a.googlescholar }}|{% endif %}{% if a.orcid %}{{ a.orcid }}|{% endif %}{% if a.researchgate %}{{ a.researchgate }}|{% endif %}{% if a.scopus %}{{ a.scopus }}|{% endif %}{% if a.linkedin %}https://www.linkedin.com/in/{{ a.linkedin }}|{% endif %}{% if a.github %}https://github.com/{{ a.github }}|{% endif %}{% if a.uri %}{{ a.uri }}|{% endif %}{% endcapture %}
+  {% assign same_as = same_as_list | split: "|" %}
   <script type="application/ld+json">
     {
-      "@context": "http://schema.org",
-      "@type": "Organization",
-      "url": {{ seo_url | jsonify }},
-      "logo": {{ site.og_image | prepend: "/images/" | prepend: base_path | jsonify }}
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": {{ site.name | jsonify }},
+      "url": {{ seo_url | append: "/" | jsonify }},
+      {% if a.avatar %}"image": {{ a.avatar | prepend: "/images/" | prepend: seo_url | jsonify }},{% endif %}
+      {% if a.bio %}"description": {{ a.bio | jsonify }},{% endif %}
+      "sameAs": {{ same_as | jsonify }}
     }
   </script>
 {% endif %}
@@ -143,5 +150,13 @@
   <meta property="og:image" content="{% if page.header.image contains "://" %}{{ page.header.image }}{% else %}{{ page.header.image | prepend: "/images/" | prepend: base_path }}{% endif %}">
 {% elsif page.header.overlay_image %}
   <meta property="og:image" content="{% if page.header.overlay_image contains "://" %}{{ page.header.overlay_image }}{% else %}{{ page.header.overlay_image | prepend: "/images/" | prepend: base_path }}{% endif %}">
+{% elsif site.og_image %}
+  <meta property="og:image" content="{{ site.og_image | prepend: "/images/" | prepend: base_path }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  {% unless site.twitter.username %}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{ site.og_image | prepend: "/images/" | prepend: base_path }}">
+  {% endunless %}
 {% endif %}
 <!-- end Open Graph protocol -->

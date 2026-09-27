@@ -1,3 +1,11 @@
-<script type="module" src="{{ base_path }}/assets/js/main.min.js"></script>
+{% include base_path %}
+{% comment %}
+  site.js replaces the old 4.6 MB main.min.js bundle (jQuery + Plotly).
+  It also loads MathJax, Mermaid and Plotly on demand, only on pages that use them.
+{% endcomment %}
+<script src="{{ base_path }}/assets/js/site.js?v={{ site.time | date: '%s' }}" defer></script>
+{% if page.layout == "home" %}
+<script src="{{ base_path }}/assets/js/hero.js?v={{ site.time | date: '%s' }}" defer></script>
+{% endif %}
 
 {% include analytics.html %}

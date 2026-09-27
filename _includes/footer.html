@@ -1,25 +1,56 @@
 {% include base_path %}
+{% assign author = site.author %}
 
-{% if site.author.github or site.author.bitbucket or site.atom_feed.hide != true %}
-<div class="page__footer-follow">
-  <ul class="social-icons">
-    {% if site.data.ui-text[site.locale].follow_label %}
-      <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li>
-    {% endif %}
-    {% if site.author.github %}
-      <li><a href="https://github.com/{{ site.author.github }}"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
-    {% endif %}
-    {% if site.author.bitbucket %}
-      <li><a href="https://bitbucket.org/{{ site.author.bitbucket }}"><i class="fab fa-bitbucket" aria-hidden="true"></i> Bitbucket</a></li>
-    {% endif %}
-    {% if site.atom_feed.hide != true %}
-    <li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}</a></li>
-    {% endif %}
-  </ul>
-</div>
-{% endif %}
+<footer class="site-footer">
+  <div class="container site-footer__grid">
+    <div class="site-footer__col--brand">
+      <a class="brand" href="{{ base_path }}/">
+        <span class="brand__mark" aria-hidden="true">HA</span>
+        <span class="brand__text">
+          <span class="brand__name">{{ site.title }}</span>
+          <span class="brand__tag">Construction Informatics</span>
+        </span>
+      </a>
+      {% if author.bio %}<p class="site-footer__about">{{ author.bio }}</p>{% endif %}
+      {% if author.location %}<p class="site-footer__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>{{ author.location }}</p>{% endif %}
+    </div>
 
-<div class="page__footer-copyright">
-  &copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}, {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.<br />
-  Site last updated {{ "now" | date: '%Y-%m-%d' }}
-</div>
+    <div>
+      <h2 class="site-footer__title">Explore</h2>
+      <ul>
+        {% for link in site.data.navigation.main %}
+          <li><a href="{% unless link.url contains 'http' %}{{ base_path }}{% endunless %}{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+        <li><a href="{{ base_path }}/cv/">Curriculum Vitae</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="site-footer__title">Profiles</h2>
+      <ul>
+        {% if author.googlescholar %}<li><a href="{{ author.googlescholar }}"><i class="ai ai-google-scholar" aria-hidden="true"></i>Google Scholar</a></li>{% endif %}
+        {% if author.orcid %}<li><a href="{{ author.orcid }}"><i class="ai ai-orcid" aria-hidden="true"></i>ORCID</a></li>{% endif %}
+        {% if author.researchgate %}<li><a href="{{ author.researchgate }}"><i class="fab fa-researchgate" aria-hidden="true"></i>ResearchGate</a></li>{% endif %}
+        {% if author.scopus %}<li><a href="{{ author.scopus }}"><i class="ai ai-scopus" aria-hidden="true"></i>Scopus</a></li>{% endif %}
+        {% if author.linkedin %}<li><a href="https://www.linkedin.com/in/{{ author.linkedin }}"><i class="fab fa-linkedin" aria-hidden="true"></i>LinkedIn</a></li>{% endif %}
+        {% if author.github %}<li><a href="https://github.com/{{ author.github }}"><i class="fab fa-github" aria-hidden="true"></i>GitHub</a></li>{% endif %}
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="site-footer__title">Contact</h2>
+      <ul>
+        {% if author.email %}<li><a href="mailto:{{ author.email }}"><i class="fa-solid fa-envelope" aria-hidden="true"></i>{{ author.email }}</a></li>{% endif %}
+        {% if author.uri %}<li><a href="{{ author.uri }}"><i class="fa-solid fa-building-columns" aria-hidden="true"></i>Cambridge profile</a></li>{% endif %}
+        {% if site.atom_feed.hide != true %}<li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}"><i class="fa-solid fa-rss" aria-hidden="true"></i>{{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}</a></li>{% endif %}
+      </ul>
+    </div>
+  </div>
+
+  <div class="container site-footer__bottom">
+    <span>&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}. Site last updated {{ "now" | date: '%-d %B %Y' }}.</span>
+    <span><a href="{{ base_path }}/sitemap/">Sitemap</a> &middot; Built with <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a></span>
+  </div>
+
+  {% include footer/custom.html %}
+</footer>

@@ -1,0 +1,26 @@
+{% include base_path %}
+{% comment %} Research project card. Pass project=<document>. {% endcomment %}
+{% assign p = include.project %}
+{% assign now_ym = site.time | date: "%Y-%m" %}
+{% assign name = p.short_title | default: p.title %}
+<article class="project-card reveal"{% if include.delay %} style="--d: {{ include.delay }}"{% endif %}>
+  <a class="project-card__media" href="{{ base_path }}{{ p.url }}" tabindex="-1" aria-hidden="true">
+    {% if p.logo %}<img src="{{ base_path }}/images/{{ p.logo }}" alt="" width="500" height="300" loading="lazy">{% endif %}
+  </a>
+  <div class="project-card__body">
+    <div class="project-card__top">
+      {% if p.end %}
+        {% if p.end >= now_ym %}{% assign ongoing = true %}{% else %}{% assign ongoing = false %}{% endif %}
+        <span class="status {% if ongoing %}status--ongoing{% else %}status--done{% endif %}" data-end="{{ p.end }}">{% if ongoing %}Ongoing{% else %}Completed{% endif %}</span>
+      {% endif %}
+      {% if p.period %}<span class="project-card__period">{{ p.period }}</span>{% endif %}
+    </div>
+    <h3 class="project-card__title"><a href="{{ base_path }}{{ p.url }}">{{ name }}</a></h3>
+    {% if p.subtitle %}<p class="project-card__sub">{{ p.subtitle }}</p>{% endif %}
+    {% if p.sponsor %}<p class="project-card__sponsor"><i class="fa-solid fa-landmark" aria-hidden="true"></i><span>{{ p.sponsor }}</span></p>{% endif %}
+    <div class="project-card__links">
+      <a href="{{ base_path }}{{ p.url }}">Details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i><span class="visually-hidden"> about {{ name }}</span></a>
+      {% if p.website %}<a href="{{ p.website }}">Website <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i><span class="visually-hidden"> of {{ name }}</span></a>{% endif %}
+    </div>
+  </div>
+</article>

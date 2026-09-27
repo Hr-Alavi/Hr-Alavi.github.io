@@ -3,12 +3,29 @@ layout: archive
 title: "Research Projects"
 permalink: /portfolio/
 author_profile: true
+eyebrow: "Funded research"
+intro: "Projects funded by Horizon Europe, H2020 and national and regional agencies, on digital twins, renovation, circular design and intelligent infrastructure maintenance."
 ---
 
 {% include base_path %}
+{% comment %}
+  Cards are built from the files in _portfolio/, newest `start` first.
+  Each project needs: short_title, subtitle, sponsor, period, start, end, logo, website.
+{% endcomment %}
 
+{% assign projects = site.portfolio | sort: "start" | reverse %}
+{% assign now_ym = site.time | date: "%Y-%m" %}
+{% assign ongoing_count = 0 %}
+{% for p in projects %}{% if p.end >= now_ym %}{% assign ongoing_count = ongoing_count | plus: 1 %}{% endif %}{% endfor %}
 
-{% for post in site.portfolio %}
-  {% include archive-single.html %}
-{% endfor %}
+<ul class="summary-row">
+  <li class="chip"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i><b>{{ projects.size }}</b> projects</li>
+  <li class="chip"><i class="fa-solid fa-circle-play" aria-hidden="true"></i><b>{{ ongoing_count }}</b> ongoing</li>
+  <li class="chip"><i class="fa-solid fa-earth-europe" aria-hidden="true"></i>Horizon Europe, H2020, national &amp; regional funders</li>
+</ul>
 
+<div class="project-grid project-grid--2">
+  {% for p in projects %}
+    {% include project-card.html project=p delay=forloop.index0 %}
+  {% endfor %}
+</div>

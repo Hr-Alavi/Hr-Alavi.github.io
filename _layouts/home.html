@@ -1,0 +1,256 @@
+---
+layout: default
+---
+
+{% include base_path %}
+{% comment %}
+  Homepage. Text lives in _pages/about.md:
+  - front matter: hero, interests, credentials, themes, moments
+  - body: the biography, then "<!-- highlights -->", then the yearly highlights.
+  Numbers and cards (stats, projects, books) are computed from the collections.
+{% endcomment %}
+{% assign author = site.author %}
+{% assign hero = page.hero %}
+{% assign parts = content | split: "<!-- highlights -->" %}
+{% assign bio = parts | first %}
+{% if parts.size > 1 %}{% assign highlights = parts | last %}{% endif %}
+
+{% assign pubs_counted = site.publications | where_exp: "p", "p.status != 'Under Review'" %}
+{% assign books = site.publications | where: "category", "books" | sort: "date" | reverse %}
+{% assign projects = site.portfolio | sort: "start" | reverse %}
+{% assign modules = site.teaching | where_exp: "t", "t.venue" %}
+{% assign name_parts = author.name | split: ", " %}
+
+<!-- Hero -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="blueprint" aria-hidden="true"></div>
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      {% if hero.eyebrow %}<p class="eyebrow">{{ hero.eyebrow }}</p>{% endif %}
+      <h1 class="hero__title" id="hero-title"><span>{{ hero.name | default: site.name }}</span></h1>
+      {% if hero.tagline %}
+        <p class="hero__tagline">
+          {{ hero.tagline }}
+          {% if hero.rotating %}
+            <span class="rotator" data-rotator aria-hidden="true">{% for word in hero.rotating %}<span{% if forloop.first %} class="is-active"{% endif %}>{{ word }}</span>{% endfor %}</span>
+            <span class="visually-hidden">{{ hero.rotating | join: " " }}</span>
+          {% endif %}
+        </p>
+      {% endif %}
+      {% if hero.role %}<p class="hero__role">{{ hero.role }}</p>{% endif %}
+      <div class="hero__cta">
+        <a class="button button--primary" href="{{ base_path }}/portfolio/">Explore research <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        <a class="button button--ghost" href="{{ base_path }}/publications/">Publications</a>
+        {% if author.email %}<a class="button button--ghost" href="mailto:{{ author.email }}"><i class="fa-regular fa-envelope" aria-hidden="true"></i> Get in touch</a>{% endif %}
+      </div>
+      <ul class="hero__social" aria-label="Academic profiles">
+        {% if author.googlescholar %}<li><a href="{{ author.googlescholar }}" title="Google Scholar" aria-label="Google Scholar"><i class="ai ai-google-scholar" aria-hidden="true"></i></a></li>{% endif %}
+        {% if author.orcid %}<li><a href="{{ author.orcid }}" title="ORCID" aria-label="ORCID"><i class="ai ai-orcid" aria-hidden="true"></i></a></li>{% endif %}
+        {% if author.researchgate %}<li><a href="{{ author.researchgate }}" title="ResearchGate" aria-label="ResearchGate"><i class="fab fa-researchgate" aria-hidden="true"></i></a></li>{% endif %}
+        {% if author.scopus %}<li><a href="{{ author.scopus }}" title="Scopus" aria-label="Scopus"><i class="ai ai-scopus" aria-hidden="true"></i></a></li>{% endif %}
+        {% if author.linkedin %}<li><a href="https://www.linkedin.com/in/{{ author.linkedin }}" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>{% endif %}
+        {% if author.github %}<li><a href="https://github.com/{{ author.github }}" title="GitHub" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a></li>{% endif %}
+        {% if author.twitter %}<li><a href="https://twitter.com/{{ author.twitter }}" title="X (Twitter)" aria-label="X (Twitter)"><i class="fab fa-x-twitter" aria-hidden="true"></i></a></li>{% endif %}
+      </ul>
+    </div>
+
+    <div class="hero__visual">
+      <canvas id="twin-canvas" role="img" aria-label="Animated point cloud of a building being scanned into a digital twin"></canvas>
+      <div class="hud hud--tl" aria-hidden="true"><span class="hud__dot"></span>Scan <b data-hud="scan">100%</b></div>
+      <div class="hud hud--br" aria-hidden="true">Points <b data-hud="points">0</b> · LOD <b>350</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- Key numbers -->
+<section class="stats" aria-label="At a glance">
+  <div class="container">
+    <div class="stats__card">
+      <div class="stat reveal" style="--d: 0"><span class="stat__num" data-count="{{ pubs_counted.size }}">{{ pubs_counted.size }}</span><span class="stat__label">Publications</span></div>
+      <div class="stat reveal" style="--d: 1"><span class="stat__num" data-count="{{ books.size }}">{{ books.size }}</span><span class="stat__label">Books</span></div>
+      <div class="stat reveal" style="--d: 2"><span class="stat__num" data-count="{{ projects.size }}">{{ projects.size }}</span><span class="stat__label">Research projects</span></div>
+      <div class="stat reveal" style="--d: 3"><span class="stat__num" data-count="{{ site.talks.size }}">{{ site.talks.size }}</span><span class="stat__label">Talks &amp; media</span></div>
+      <div class="stat reveal" style="--d: 4"><span class="stat__num" data-count="{{ modules.size }}">{{ modules.size }}</span><span class="stat__label">Modules taught</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section" id="about" aria-labelledby="about-title">
+  <div class="container about">
+    <div class="about__media reveal">
+      <figure class="portrait">
+        <img src="{{ base_path }}/images/{{ page.portrait | default: author.avatar }}" alt="Portrait of {{ name_parts | first }}" width="520" height="628" loading="lazy">
+      </figure>
+      {% if page.credentials %}
+        <ul class="credentials">
+          {% for c in page.credentials %}
+            <li><span class="credentials__label">{{ c.label }}</span><span class="credentials__title">{{ c.title }}</span></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+    <div class="about__text reveal" style="--d: 1">
+      <p class="eyebrow">About</p>
+      <h2 class="section__title" id="about-title">{{ page.about_title | default: "Academic biography" }}</h2>
+      <div class="prose">{{ bio }}</div>
+      {% if page.interests %}
+        <div class="about__interests">
+          <h3>Research interests</h3>
+          <ul class="chip-list">{% for i in page.interests %}<li class="chip">{{ i }}</li>{% endfor %}</ul>
+        </div>
+      {% endif %}
+      <div class="about__actions">
+        <a class="button button--primary" href="{{ base_path }}/cv/"><i class="fa-regular fa-file-lines" aria-hidden="true"></i> Full CV</a>
+        {% if author.uri %}<a class="button button--ghost" href="{{ author.uri }}">Cambridge profile <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>{% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Research themes -->
+{% if page.themes %}
+<section class="section section--alt" id="research" aria-labelledby="themes-title">
+  <div class="container">
+    <header class="section__head section__head--row">
+      <div>
+        <p class="eyebrow">Research</p>
+        <h2 class="section__title" id="themes-title">{{ page.themes_title | default: "Research themes" }}</h2>
+        <p class="section__lead">{{ page.themes_intro }}</p>
+      </div>
+      <a class="link-arrow" href="{{ base_path }}/publications/">All publications <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </header>
+    <div class="theme-grid">
+      {% for t in page.themes %}
+        <a class="theme-card reveal" style="--d: {{ forloop.index0 | modulo: 3 }}" href="{{ base_path }}/publications/{% if t.query %}?q={{ t.query | url_encode }}{% endif %}" data-spotlight>
+          <span class="theme-card__num" aria-hidden="true">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+          <span class="theme-card__icon" aria-hidden="true"><i class="fa-solid {{ t.icon }}"></i></span>
+          <h3>{{ t.title }}</h3>
+          <p>{{ t.text }}</p>
+          <span class="theme-card__more">Related publications <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- Research projects -->
+<section class="section" id="projects" aria-labelledby="projects-title">
+  <div class="container">
+    <header class="section__head section__head--row">
+      <div>
+        <p class="eyebrow">Projects</p>
+        <h2 class="section__title" id="projects-title">Funded research projects</h2>
+        <p class="section__lead">{{ page.projects_intro }}</p>
+      </div>
+      <a class="link-arrow" href="{{ base_path }}/portfolio/">All projects <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </header>
+    <div class="project-grid">
+      {% for p in projects limit: 6 %}
+        {% include project-card.html project=p delay=forloop.index0 %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Books -->
+{% if books.size > 0 %}
+<section class="section section--alt" id="books" aria-labelledby="books-title">
+  <div class="container">
+    <header class="section__head">
+      <p class="eyebrow">Books</p>
+      <h2 class="section__title" id="books-title">Books</h2>
+      <p class="section__lead">{{ page.books_intro }}</p>
+    </header>
+    <div class="books">
+      {% for b in books %}
+        {% assign b_cover = b.cover | default: b.header.teaser %}
+        {% assign b_authors = b.citation | split: " (" | first %}
+        <article class="book reveal" style="--d: {{ forloop.index0 }}">
+          {% if b_cover %}<a class="book__cover" href="{{ b.paperurl | default: b.url }}" tabindex="-1" aria-hidden="true"><img src="{{ base_path }}/images/{{ b_cover }}" alt="" width="150" height="227" loading="lazy"></a>{% endif %}
+          <div>
+            <p class="book__publisher">{{ b.venue }} · {{ b.date | date: "%Y" }}</p>
+            <h3 class="book__title"><a href="{{ b.paperurl | default: b.url }}">{{ b.title }}</a></h3>
+            <p class="book__authors">{{ b_authors }}</p>
+            <a class="button button--ghost button--sm" href="{{ base_path }}{{ b.url }}">Cite this book</a>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- Highlights (from the Markdown after the highlights marker in about.md) -->
+{% if highlights %}
+<section class="section" id="highlights" aria-labelledby="highlights-title">
+  <div class="container split">
+    <div class="split__aside">
+      <header class="section__head">
+        <p class="eyebrow">News</p>
+        <h2 class="section__title" id="highlights-title">{{ page.highlights_title | default: "Recent highlights & activities" }}</h2>
+        <p class="section__lead">{{ page.highlights_intro }}</p>
+      </header>
+      <a class="link-arrow" href="{{ base_path }}/talks/">Talks &amp; media <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="timeline reveal">{{ highlights }}</div>
+  </div>
+</section>
+{% endif %}
+
+<!-- Moments -->
+{% if page.moments %}
+<section class="section section--alt moments" id="moments" aria-labelledby="moments-title" data-scroller>
+  <div class="container">
+    <header class="section__head section__head--row">
+      <div>
+        <p class="eyebrow">Moments</p>
+        <h2 class="section__title" id="moments-title">{{ page.moments_title | default: "Out and about" }}</h2>
+        <p class="section__lead">{{ page.moments_intro }}</p>
+      </div>
+      <div class="moments__nav">
+        <button class="round-btn" type="button" data-scroll-dir="prev" aria-label="Scroll photos left"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
+        <button class="round-btn" type="button" data-scroll-dir="next" aria-label="Scroll photos right"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+      </div>
+    </header>
+  </div>
+  <ul class="moments__track" data-scroller-track>
+    {% for m in page.moments %}
+      <li class="moment">
+        <figure>
+          <a href="{{ base_path }}/images/{{ m.image }}-lg.webp" data-lightbox{% if m.caption %} data-caption="{{ m.caption | escape }}"{% endif %}>
+            <img src="{{ base_path }}/images/{{ m.image }}-sm.webp" alt="{{ m.alt | escape }}" loading="lazy">
+            {% if m.caption %}<figcaption>{{ m.caption }}</figcaption>{% endif %}
+          </a>
+        </figure>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+<!-- Contact -->
+<section class="cta section" aria-labelledby="cta-title">
+  <div class="container">
+    <div class="cta__panel reveal">
+      <div class="blueprint" aria-hidden="true"></div>
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2 class="cta__title" id="cta-title">{{ page.cta_title | default: "Get in touch" }}</h2>
+        <p class="cta__text">{{ page.cta_text }}</p>
+      </div>
+      <div class="cta__actions">
+        {% if author.email %}<a class="button button--primary" href="mailto:{{ author.email }}"><i class="fa-regular fa-envelope" aria-hidden="true"></i> {{ author.email }}</a>{% endif %}
+        <a class="button button--ghost" href="{{ base_path }}/cv/">View CV</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+  <button class="lightbox__btn lightbox__btn--close" type="button" data-lb-close aria-label="Close"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+  <button class="lightbox__btn lightbox__btn--prev" type="button" data-lb-nav="prev" aria-label="Previous photo"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
+  <button class="lightbox__btn lightbox__btn--next" type="button" data-lb-nav="next" aria-label="Next photo"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+  <figure><img src="" alt=""><figcaption></figcaption></figure>
+</dialog>
