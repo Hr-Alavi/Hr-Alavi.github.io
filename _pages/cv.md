@@ -15,7 +15,7 @@ Profiles: [Oxford Brookes University](https://www.brookes.ac.uk/profiles/staff/h
 
 Education
 ======
-* **PhD in 2 Construction Engineering**
+* **PhD in Construction Engineering**
 * **Certificate in Teaching & Learning in Higher Education**
 * **MSc in Construction Engineering and Management**
 * **MEng in Project Engineering**
